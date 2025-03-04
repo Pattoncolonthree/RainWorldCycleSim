@@ -1,4 +1,5 @@
 import time
+from threading import Thread
 seconds = time.time()
 local_time = time.ctime(seconds)
 
@@ -6,6 +7,7 @@ print("Monk is easy, Survivor is normal and Hunter is hard mode.")
 slug = input("What slugcat are you playing? ")
 slugcat = slug.lower()
 choice_made = False
+
 
 while choice_made == False:
     if slugcat == "monk":
@@ -40,8 +42,7 @@ if slugcat == "monk":
     time.sleep(2)
 
 
-import time
-from threading import Thread
+
 
 answer = None
 
@@ -57,8 +58,6 @@ Thread(target = check).start()
 answer = input("Quick! there is a SPEAR, a ROCK or TUNNEL. What do you do? ").lower()
 print(" ")
 
-import time
-from threading import Thread
 
 throw = None
 spear = None
