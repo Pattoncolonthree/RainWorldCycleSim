@@ -4,8 +4,7 @@ seconds = time.time()
 local_time = time.ctime(seconds)
 
 print("Monk is easy, Survivor is normal and Hunter is hard mode.")
-slug = input("What slugcat are you playing? ")
-slugcat = slug.lower()
+slugcat = input("What slugcat are you playing? ").lower()
 choice_made = False
 
 
@@ -88,6 +87,17 @@ if answer == "rock":
         print("The Lizard shakes it's head, disoriented")
         time.sleep(1)
         print("You take the oportunity to run, getting away while the lizard was distracted.")
+        time.sleep(3)
+        print(" ")
+        print("you look behind yourself warily, but the lizard is nowhere in sight. You sigh in relief")
+        time.sleep(1)
+        print(" ")
+        time.sleep(1)
+        print(" ")
+        time.sleep(1)
+    else:
+        print("That's not an option! The pink Lizard pounces on you, killing you insantly") 
+        exit
 
 elif answer == "spear":
     print("You grab the spear in front of you, shakily holding it up to the lizard")
@@ -105,9 +115,25 @@ elif answer == "spear":
     print(" ")
     time.sleep(1)
     if spear == "face":
-        print("death")
+        print("The Spear hits the lizards face, bouncing off as the lizard hisses, shaking it's unharmed face.")
+        time.sleep(2)
+        print(" ")
+        time.sleep(2)
+        print("The Lizard looks at you, now undeniably pissed. It snarls and pounces, crushing you in it's jaws.")
+        exit
     elif spear == "side":
-        print("live!!!")
+        print("You stab the lizard in it's side hastily, and while the creature writhes, you take the chance to run")
+        time.sleep(3)
+        print(" ")
+        print("you look behind yourself warily, but the lizard is nowhere in sight. You sigh in relief")
+        time.sleep(1)
+        print(" ")
+        time.sleep(1)
+        print(" ")
+        time.sleep(1)
+    else:
+        print("That's not an option! The pink Lizard pounces on you, killing you insantly") 
+        exit
 
 elif answer == "tunnel":
     print("You quickly back into the tunnel you came from, hoping the lizard didnt notice you(it did)")
@@ -121,7 +147,22 @@ elif answer == "tunnel":
         exit
     Thread(target = check).start()
     tunnel = input("Quick! What do you do?!RUN(turn and sprint away!) or play DEAD(maybe it wont eat you?)").lower()
+    if tunnel == "dead":
+        print("The lizard jumps out of the tunnel, ready to give chase!")
+        time.sleep(2)
+        print("It pauses before slowly looking down at you")
+        time.sleep(2)
+        print("Only a moment later, the Lizards jaws chomp down on you. It was gonna kill you anyway, why did you think that would work?")
+        time.sleep(3)
+        exit
+    elif tunnel == "run":
+        print("You zip off! Not even looking back at the Lizard behind you as you jump and dive between the obsticles in your way. Finally you dive into a tunnel leading into another room.")
+        time.sleep(2)
+        print(" ")
+        time.sleep(2)
+        print("you look behind yourself warily, but the lizard is nowhere in sight. You sigh in relief")
 
 else:
-    print("That's not an option! The pink Lizard pounces on you, killing you insantly")
+    print("That's not an option! The pink Lizard pounces on you, killing you insantly") 
     exit
+
