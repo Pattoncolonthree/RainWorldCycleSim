@@ -7,6 +7,8 @@ print("Monk is easy, Survivor is normal and Hunter is hard mode.")
 slugcat = input("What slugcat are you playing? ").lower()
 choice_made = False
 
+foodpips = int("1")
+
 
 while choice_made == False:
     if slugcat == "monk":
@@ -14,6 +16,7 @@ while choice_made == False:
         time.sleep(3)
         print("They are physically weaker than  Survivor, but predators are less frequent and less aggressive, making the world comparatively easier to traverse.")
         choice_made = True
+        #Monk is the only working one rn so yeah uhm
     elif slugcat == "survivor":
         print("A nimble omnivore, both predator and prey. Lost in a harsh and indifferent land you must make your own way, with wit and caution as your greatest assets.")
         time.sleep(3)
@@ -40,11 +43,15 @@ if slugcat == "monk":
     print(" ")
     time.sleep(2)
 
+#the blank prints and sleeps to make stuff not go too fast and look nicer(with all the lines too close it feels very busy)
 
+#I honestly think that i'm gonna instead of so many time.sleep(x)'s Im gonna make some of the prints into inputs
+#^^^^so that the user can choose when to skip dialogue(especially on replays, and when you've died and restarted, waiting over and over gets frustrating)
 
 
 answer = None
 
+#first function, adjusted from stack overflow (https://stackoverflow.com/questions/15528939/time-limited-input)
 def check():
     time.sleep(10)
     if answer != None:
@@ -98,6 +105,8 @@ if answer == "rock":
     else:
         print("That's not an option! The pink Lizard pounces on you, killing you insantly") 
         exit
+#adding timed events in order to make the situations more tense ^_^
+
 
 elif answer == "spear":
     print("You grab the spear in front of you, shakily holding it up to the lizard")
@@ -119,7 +128,8 @@ elif answer == "spear":
         time.sleep(2)
         print(" ")
         time.sleep(2)
-        print("The Lizard looks at you, now undeniably pissed. It snarls and pounces, crushing you in it's jaws.")
+        print("The Lizard looks at you, now undeniably furious. It snarls and pounces, crushing you in it's jaws.")
+        time.sleep(3)
         exit
     elif spear == "side":
         print("You stab the lizard in it's side hastily, and while the creature writhes, you take the chance to run")
@@ -166,3 +176,24 @@ else:
     print("That's not an option! The pink Lizard pounces on you, killing you insantly") 
     exit
 
+roomchoice = False
+print("You look around the room you now find yourself in")
+time.sleep(1)
+print(" ")
+time.sleep(1)
+print("There is a tunnel into another room and a few berries")
+print(" ")
+time.sleep(1)
+print(" ")
+time.sleep(1)
+room = input("what do you go to? ").lower()
+
+
+while roomchoice == False:
+    if room == "berry" or "berries":
+        print("You walk up to the berries, there are three of them")
+        amount = input(int("How many do you eat? "))
+        try:
+            amount += 1
+        except TypeError:
+            amount = input(int("that's not a number. How many do you eat? "))
