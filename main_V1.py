@@ -94,19 +94,25 @@ if answer == "rock":
         print("The Lizard shakes it's head, disoriented")
         time.sleep(1)
         print("You take the oportunity to run, getting away while the lizard was distracted.")
+<<<<<<< HEAD
         time.sleep(3)
         print(" ")
         print("you look behind yourself warily, but the lizard is nowhere in sight. You sigh in relief")
+=======
+>>>>>>> ab9020bc085e63ba36bed61910f1d02620daf6b6
         time.sleep(1)
         print(" ")
         time.sleep(1)
         print(" ")
         time.sleep(1)
+<<<<<<< HEAD
     else:
         print("That's not an option! The pink Lizard pounces on you, killing you insantly") 
         exit
 #adding timed events in order to make the situations more tense ^_^
 
+=======
+>>>>>>> ab9020bc085e63ba36bed61910f1d02620daf6b6
 
 elif answer == "spear":
     print("You grab the spear in front of you, shakily holding it up to the lizard")
@@ -124,6 +130,7 @@ elif answer == "spear":
     print(" ")
     time.sleep(1)
     if spear == "face":
+<<<<<<< HEAD
         print("The Spear hits the lizards face, bouncing off as the lizard hisses, shaking it's unharmed face.")
         time.sleep(2)
         print(" ")
@@ -136,14 +143,35 @@ elif answer == "spear":
         time.sleep(3)
         print(" ")
         print("you look behind yourself warily, but the lizard is nowhere in sight. You sigh in relief")
+=======
+        print("You throw the spear at the lizards face. The spear bounces off and it shakes it's unharmed jaws")
+        time.sleep(2)
+        print(" ")
+        time.sleep(2)
+        print("The lizard snarls, now visibly angrier. It crushes you in it's jaws, killing you instantly")
+        time.sleep(2)
+        print(" ")
+        time.sleep(2)
+        exit
+
+    elif spear == "side":
+        print("You swiftly stab the lizard in it's side, causing it to call out in pain")
+        time.sleep(2)
+        print(" ")
+        time.sleep(2)
+        print("While the Lizard is disorientated and hurt, you flee from the room.")
+>>>>>>> ab9020bc085e63ba36bed61910f1d02620daf6b6
         time.sleep(1)
         print(" ")
         time.sleep(1)
         print(" ")
         time.sleep(1)
+<<<<<<< HEAD
     else:
         print("That's not an option! The pink Lizard pounces on you, killing you insantly") 
         exit
+=======
+>>>>>>> ab9020bc085e63ba36bed61910f1d02620daf6b6
 
 elif answer == "tunnel":
     print("You quickly back into the tunnel you came from, hoping the lizard didnt notice you(it did)")
@@ -157,6 +185,7 @@ elif answer == "tunnel":
         exit
     Thread(target = check).start()
     tunnel = input("Quick! What do you do?!RUN(turn and sprint away!) or play DEAD(maybe it wont eat you?)").lower()
+<<<<<<< HEAD
     if tunnel == "dead":
         print("The lizard jumps out of the tunnel, ready to give chase!")
         time.sleep(2)
@@ -171,6 +200,54 @@ elif answer == "tunnel":
         print(" ")
         time.sleep(2)
         print("you look behind yourself warily, but the lizard is nowhere in sight. You sigh in relief")
+=======
+    if tunnel == "DEAD":
+        time.sleep(2)
+        print(" ")
+        time.sleep(2)
+        print(" ")
+        time.sleep(1)
+        print("The Lizard springs out of the tunnel! Ready to chase you and..!")
+        time.sleep(4)
+        print(". ")
+        time.sleep(.5)
+        print(".. ")
+        time.sleep(.5)
+        print("...")
+        time.sleep(3)
+        print("It looks down at you with an expression of bewildered satisfaction")
+        time.sleep(1)
+        print(" ")
+        time.sleep(1)
+        print("The Pink lizard crushes you in it's jaws, turning your fake death real.")
+        time.sleep(2)
+        print(" ")
+        exit
+    elif tunnel == "run":
+        time.sleep(2)
+        print(" ")
+        time.sleep(2)
+        print(" ")
+        time.sleep(1)
+        print("You dont even turn to face it before sprinting away.")
+        time.sleep(4)
+        print("tap")
+        time.sleep(.5)
+        print("Clink!")
+        time.sleep(.5)
+        print("THUMP!")
+        time.sleep(1)
+        print("You didnt stop till the lizard sounds were far gone. You stopped to breath, before looking around the new room")
+
+
+    
+    elif tunnel == "run":
+        time.sleep(1)
+        print(" ")
+        time.sleep(1)
+        print(" ")
+        time.sleep(1)
+>>>>>>> ab9020bc085e63ba36bed61910f1d02620daf6b6
 
 else:
     print("That's not an option! The pink Lizard pounces on you, killing you insantly") 
