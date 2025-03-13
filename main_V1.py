@@ -12,25 +12,21 @@ foodpips = int("1")
 
 while choice_made == False:
     if slugcat == "monk":
-        print("Weak of body but strong in spirit. In tune with the mysteries of the world and empathetic to its creatures, your journey will be a significantly more peaceful one")
-        time.sleep(3)
-        print("They are physically weaker than  Survivor, but predators are less frequent and less aggressive, making the world comparatively easier to traverse.")
+        input("Weak of body but strong in spirit. In tune with the mysteries of the world and empathetic to its creatures, your journey will be a significantly more peaceful one ")
+        input("They are physically weaker than  Survivor, but predators are less frequent and less aggressive, making the world comparatively easier to traverse. ")
         choice_made = True
         #Monk is the only working one rn so yeah uhm
     elif slugcat == "survivor":
-        print("A nimble omnivore, both predator and prey. Lost in a harsh and indifferent land you must make your own way, with wit and caution as your greatest assets.")
-        time.sleep(3)
-        print("The Survivor must deal with the ever-present threat of predators while trying to find their way through this hostile world. Survivor has standard Slugcat stats and abilities.")
+        input("A nimble omnivore, both predator and prey. Lost in a harsh and indifferent land you must make your own way, with wit and caution as your greatest assets. ")
+        input("The Survivor must deal with the ever-present threat of predators while trying to find their way through this hostile world. Survivor has standard Slugcat stats and abilities. ")
         choice_made = True
     elif slugcat == "hunter":
-        print("Strong and quick, with a fierce metabolism requiring a steady diet of meat. But the stomach won't be your only concern, as the path of the hunter is one of extreme peril.")
-        time.sleep(3)
-        print("Though they are faster and stronger than  Survivor, their campaign features a multitude of changes to make the game much more challenging.")
+        input("Strong and quick, with a fierce metabolism requiring a steady diet of meat. But the stomach won't be your only concern, as the path of the hunter is one of extreme peril. m")
+        input("Though they are faster and stronger than  Survivor, their campaign features a multitude of changes to make the game much more challenging. ")
         choice_made = True
     else:   
         print("That is not available, Choose from Survivor, Monk or Hunter")
         slugcat = input("What slugcat are you playing? ").lower()
-time.sleep(10)
 print(" ")
 #I hate loops omfg
 #someones dying and it aint gon be a slugcat
@@ -263,8 +259,30 @@ room = input("what do you go to? ").lower()
 while roomchoice == False:
     if room == "berry" or "berries":
         print("You walk up to the berries, there are three of them")
-        amount = input(int("How many do you eat? "))
+        time.sleep(1)
+        print(" ")
+        time.sleep(1)
+        amount = int(input("How many do you eat? "))
         try:
-            amount += 1
+            amount >= 1 or amount <= 3
+            roomchoice = True
         except TypeError:
-            amount = input(int("that's not a number. How many do you eat? "))
+            amount = int(input("that's not a number. How many do you eat? "))
+    elif room == "room" or "tunnel":
+        time.sleep(1)
+        print(" ")
+        time.sleep(1)
+        print("You ignore the berries, deciding to walk through the tunnel, curious of what's on the other side.")
+    else:
+        time.sleep(1)
+        print(" ")
+        time.sleep(1)
+        print("that is not an option.")
+        time.sleep(0.5)
+        print(" ")
+        time.sleep(0.5)
+        room = input("what do you go to? ").lower()
+#3/13/25, 12:51, not working as intended, will crash when a number is not shown, will repeat when there is a number.
+#attempting to make it so user needs to put a number and it saves as an int and moves on, but if they put something else, it will tell you you need to put a number
+
+print("woah")
