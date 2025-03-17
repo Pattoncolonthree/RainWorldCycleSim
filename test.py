@@ -6,6 +6,19 @@ from threading import Thread
 seconds = time.time()
 local_time = time.ctime(seconds)
 
+roomchoice = False
+print("You look around the room you now find yourself in")
+time.sleep(1)
+print(" ")
+time.sleep(1)
+print("There is a tunnel into another room and a few berries")
+print(" ")
+time.sleep(1)
+print(" ")
+time.sleep(1)
+room = input("what do you go to? ").lower()
+berry = False
+
 while roomchoice == False:
     if room == "berry" or room == "berries":
         print("You walk up to the berries, there are three of them")
@@ -50,6 +63,5 @@ while roomchoice == False:
         room = input("what do you go to? ").lower()
 #3/13/25, 12:51, not working as intended, will crash when a number is not shown, will repeat when there is a number.
 #attempting to make it so user needs to put a number and it saves as an int and moves on, but if they put something else, it will tell you you need to put a number
-#18/03/25, fixed the repeating, the error is still there
-
-print("woah")
+#18/03/25 9:10, fixed the repeating, the error is still there
+#18/03/25 9:43, everything is fixed..... i think.... Thank you Whaea Munireh, The GOAT
