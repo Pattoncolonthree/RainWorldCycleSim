@@ -65,3 +65,8 @@ while roomchoice == False:
 #attempting to make it so user needs to put a number and it saves as an int and moves on, but if they put something else, it will tell you you need to put a number
 #18/03/25 9:10, fixed the repeating, the error is still there
 #18/03/25 9:43, everything is fixed..... i think.... Thank you Whaea Munireh, The GOAT
+
+
+
+
+print(room)

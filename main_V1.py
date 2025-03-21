@@ -2,7 +2,7 @@ import time
 from threading import Thread
 seconds = time.time()
 local_time = time.ctime(seconds)
-
+from functest1 import *
 print("Monk is easy, Survivor is normal and Hunter is hard mode.(Only Monk available at the moment.)")
 time.sleep(1)
 print(" ")
@@ -218,6 +218,10 @@ while roomchoice == False:
             if amount >= 1 or amount <= 3:
                 roomchoice = True
                 berry = True
+        time.sleep(1)
+        print(" ")
+        time.sleep(1)
+        print("After eating your fill of the berries, you walk towards the tunnel, curious of what's on the other side.")
             
             
     elif room == "room" or room == "tunnel":
@@ -243,5 +247,16 @@ while roomchoice == False:
 #18/03/25 9:10, fixed the repeating, the error is still there
 #18/03/25 9:43, everything is fixed..... i think.... Thank you Whaea Munireh, The GOAT
 
-print("woah")
+print("you warily peak out of the tunnel")
+time.sleep(1)
+print(" ")
+time.sleep(1)
+print("after checking there is no enemies, you properly walk in")
+time.sleep(2)
+print(" ")
+time.sleep(2)
+print("There is a shelter! if you ate enough food you can now sleep!")
+choice2 = input("Do you go into the shelter or back into the other room?").lower()
 
+if choice2 == "back" or choice2 == "go back" or choice2 == "tunnel" or choice2 == "room" or choice2 == "other room":
+    roomberry(room)
