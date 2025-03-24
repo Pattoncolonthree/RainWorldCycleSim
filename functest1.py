@@ -1,3 +1,5 @@
+import time
+
 def roomberry(room):
     roomchoice = False
     print("You look around the room you now find yourself in")
@@ -58,3 +60,17 @@ def roomberry(room):
             print(" ")
             time.sleep(0.5)
             room = input("what do you go to? ").lower()
+
+
+
+
+def roomshelter():
+    print("you warily peak out of the tunnel")
+    time.sleep(1)
+    print(" ")
+    time.sleep(1)
+    print("after checking there is no enemies, you walk towards the shelter")
+    time.sleep(2)
+    print(" ")
+    time.sleep(2)
+    choice3 = True
