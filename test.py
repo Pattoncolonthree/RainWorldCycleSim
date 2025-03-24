@@ -68,5 +68,3 @@ while roomchoice == False:
 
 
 
-
-print(room)
