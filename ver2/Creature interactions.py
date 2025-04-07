@@ -1,18 +1,20 @@
 #imports and set ups
 import time
-aggression = 1
-has_spear = True
 import random
 import sys
 #imports
 
-has_rock = True
+
+aggression = 1
+has_spear = False
+has_rock = False
 seconds = time.time()
 local_time = time.ctime(seconds)
 creature = "rainworl"
 attack = "wow murders u or smth"
 answer = None
 weapon = "placeholder"
+runaway = False
 if has_spear == True:
     weapon = "Spear"
 if has_rock == True:
@@ -28,9 +30,10 @@ def delay_print(s):
         time.sleep(0.05)
 #delays each letter of the sentence to get a cleaner look.
 
-def Attackchance():
-    attacking = random.int(2,3)
+def attackchance():
+    return random.int(1,2,3)
 #seeing the chances of if the player hits when they 
+
 
 def check():
     time.sleep(10)
@@ -45,35 +48,50 @@ def reputation(aggression):
         aggression += 2
     if has_rock == True:
         aggression += 1
+
+    return aggression
 #adding the reputation system base, in the code extra things will make the aggression go up.
 
-def reputationrng(scavrep):
-    scavrep = random.int({aggression}, 10)
+def reputationrng():
+    return random.int({aggression}, {aggression + 5})
     #will check this !!!!!!! dunno if it works
 #code is to make a random number based on the level of aggression from the scavenger
 # The code will be used for when the aggression is higher, the chance of the scavenger attacking is higher.
 
-def scavenger(scav):
+def scavenger():
    
     delay_print("You look towards the creature in front of you, it looks back at you, it's quills spiking up.\n")
     time.sleep(2)
-    if reputation <= 1:
+    if reputation(aggression) <= 1:
         delay_print("The Scavenger looks at you warily, clutching it's spear to it's chest protectively\n")
-    elif reputation > 1 and reputation <= 3:
+    elif reputation(aggression) > 1 and reputation(aggression) <= 3:
         delay_print("The Scavenger raises it's spear towards you, but seems more defensive than offensive\n")
     else:
         delay_print("The Scavenger frills up, raising it's spear, and you know it intends to use it.\n")
 
-    if reputation <= 1:
-        if has_spear == True or has_rock == True:
-            delay_print("You look warily at the Scavenger, raising your own {weapon} defensively\n")
-            delay_print("You think of your options. Throw the {weapon} at it? Drop the weapon for peace??\n")
+    if has_spear == True or has_rock == True:
+            delay_print(f"You look warily at the Scavenger, raising your own {weapon} defensively\n")
+            print(" ")
+            delay_print(f"You think of your options. Throw the {weapon} at it? Drop the weapon for peace??\n")
+            print(" ")
             action = input("What do you do? ").lower()
             if action == "throw" or action == "throw spear" or action == "attack":
-                if Attackchance == 3:
-                    if reputationrng > 6:
-                        delay_print("The scavenger jumps out of the way, scrambling to it's feet and staring at you")
+                if attackchance() == 3:
+                    if reputationrng() < 3:
+                        delay_print("The scavenger jumps out of the way, scrambling to it's feet and staring at you\n")
+                        time.sleep(2)
+                        print(" ")
+                        time.sleep(2)
+                        delay_print("Without another thought the scavenger dives towards a tunnel, squeezing through and running away\n")
+                        runaway = True
+                    elif reputationrng > 3:
+                        delay_print("The scavenger jumps out of the way, scrambling to it's feet and staring at you\n")
+                        time.sleep(2)
+                        print(" ")
+                        time.sleep(2)
+                        delay_print("The creature's spikes slowly rise as it turns to you\n")
                     
-            
 
-    
+
+
+print(scavenger())
