@@ -6,8 +6,8 @@ import sys
 
 
 aggression = 1
-has_spear = False
-has_rock = False
+has_spear = True
+has_rock = True
 seconds = time.time()
 local_time = time.ctime(seconds)
 creature = "rainworl"
@@ -22,6 +22,11 @@ if has_rock == True:
 if has_rock == True and has_spear == True:
     weapon = "Spear and rock"
 
+def bigdelay_print(s):
+    for c in s:
+        sys.stdout.write(c)
+        sys.stdout.flush()
+        time.sleep(1)
 
 def delay_print(s):
     for c in s:
@@ -32,7 +37,7 @@ def delay_print(s):
 
 def attackchance():
     return random.int(1,2,3)
-#seeing the chances of if the player hits when they 
+#seeing the chances of if the player hits when they throw weapon
 
 
 def check():
@@ -77,7 +82,7 @@ def scavenger():
             action = input("What do you do? ").lower()
             if action == "throw" or action == "throw spear" or action == "attack":
                 if attackchance() == 3:
-                    if reputationrng() < 3:
+                    if reputationrng() <= 3:
                         delay_print("The scavenger jumps out of the way, scrambling to it's feet and staring at you\n")
                         time.sleep(2)
                         print(" ")
@@ -90,8 +95,27 @@ def scavenger():
                         print(" ")
                         time.sleep(2)
                         delay_print("The creature's spikes slowly rise as it turns to you\n")
-                    
+                        time.sleep(2)
+                        print(" ")
+                        delay_print("It raises it's spear to you\n")
+                        print(" ")
+                        if attackchance() == 3:
+                            bigdelay_print("...\n")
+                            delay_print("The spear clanks to the ground next to you\n")
+                            bigdelay_print("O_O'\n")
+                            delay_print("You and the Scavenger stare at eachother for a moment\n")
+                            time.sleep(2)
+                            print(" ")
+                            delay_print("It takes a small step to the side\n")
+                            time.sleep(2)
+                            print(" ")
+                            delay_print("The Scavenger then sprints in to the tunnel next to it\n")
+                            delay_print("(You get the distinct thought that the Scavenger was embarrassed)")
 
+
+
+
+                    
 
 
 print(scavenger())
