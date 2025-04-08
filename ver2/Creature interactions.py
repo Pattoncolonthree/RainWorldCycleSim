@@ -2,8 +2,8 @@
 import time
 import random
 import sys
+import winsound
 #imports
-
 
 aggression = 1
 has_spear = True
@@ -36,7 +36,7 @@ def delay_print(s):
 #delays each letter of the sentence to get a cleaner look.
 
 def attackchance():
-    return random.int(1,2,3)
+    return random.randint(1,3)
 #seeing the chances of if the player hits when they throw weapon
 
 
@@ -63,10 +63,13 @@ def reputationrng():
 #code is to make a random number based on the level of aggression from the scavenger
 # The code will be used for when the aggression is higher, the chance of the scavenger attacking is higher.
 
+
 def scavenger():
-   
+    winsound.PlaySound('threat.wav', winsound.SND_FILENAME,) 
+    winsound.SND_ASYNC
     delay_print("You look towards the creature in front of you, it looks back at you, it's quills spiking up.\n")
     time.sleep(2)
+    print(" ")
     if reputation(aggression) <= 1:
         delay_print("The Scavenger looks at you warily, clutching it's spear to it's chest protectively\n")
     elif reputation(aggression) > 1 and reputation(aggression) <= 3:
@@ -75,9 +78,13 @@ def scavenger():
         delay_print("The Scavenger frills up, raising it's spear, and you know it intends to use it.\n")
 
     if has_spear == True or has_rock == True:
+            time.sleep(2)
+            print(" ")
             delay_print(f"You look warily at the Scavenger, raising your own {weapon} defensively\n")
+            time.sleep(2)
             print(" ")
             delay_print(f"You think of your options. Throw the {weapon} at it? Drop the weapon for peace??\n")
+            time.sleep(2)
             print(" ")
             action = input("What do you do? ").lower()
             if action == "throw" or action == "throw spear" or action == "attack":
@@ -98,6 +105,7 @@ def scavenger():
                         time.sleep(2)
                         print(" ")
                         delay_print("It raises it's spear to you\n")
+                        time.sleep(2)
                         print(" ")
                         if attackchance() == 3:
                             bigdelay_print("...\n")
@@ -110,7 +118,22 @@ def scavenger():
                             time.sleep(2)
                             print(" ")
                             delay_print("The Scavenger then sprints in to the tunnel next to it\n")
+                            time.sleep(2)
+                            print(" ")
                             delay_print("(You get the distinct thought that the Scavenger was embarrassed)")
+                        else:
+                            bigdelay_print("...\n")
+                            delay_print("The spear stabs right through your chest.\n")
+                            time.sleep(2)
+                            print(" ")
+                            delay_print("The last thing you see before your vision goes black is the Scavenger running off ")
+                            bigdelay_print("YOU DIED")
+                            winsound.PlaySound('death.wav', winsound.SND_FILENAME)
+                else:
+                    delay_print("The spear peirces the Scavengers chest")
+                    time.sleep(2)
+                    print(" ")
+                    delay_print("The creature doesn't even get a chance to react before it has already collapsed")
 
 
 
