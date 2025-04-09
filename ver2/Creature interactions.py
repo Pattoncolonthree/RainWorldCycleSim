@@ -3,6 +3,7 @@ import time
 import random
 import sys
 import winsound
+import threading
 #imports
 
 aggression = 1
@@ -65,8 +66,9 @@ def reputationrng():
 
 
 def scavenger():
-    winsound.PlaySound('threat.wav', winsound.SND_FILENAME,) 
-    winsound.SND_ASYNC
+    winsound.PlaySound('threat.wav', winsound.SND_ASYNC)
+    #winsound!!!! will play the audio as the gameplays and will loop! playing any other sound cancels this but i am gonna attempt to fix this :3
+    #I HAVE PERMISSION FROM RIVOTTER AND JAMES THERRIAN(James Primate) TO USE BOTH THE MUSIC AND AUDIO FROM THE GAME: Rain World by Video Cult
     delay_print("You look towards the creature in front of you, it looks back at you, it's quills spiking up.\n")
     time.sleep(2)
     print(" ")
@@ -77,7 +79,7 @@ def scavenger():
     else:
         delay_print("The Scavenger frills up, raising it's spear, and you know it intends to use it.\n")
 
-    if has_spear == True or has_rock == True:
+    if has_spear == True or has_rock == True and runaway == False:
             time.sleep(2)
             print(" ")
             delay_print(f"You look warily at the Scavenger, raising your own {weapon} defensively\n")
@@ -88,15 +90,15 @@ def scavenger():
             print(" ")
             action = input("What do you do? ").lower()
             if action == "throw" or action == "throw spear" or action == "attack":
-                if attackchance() == 3:
-                    if reputationrng() <= 3:
+                if attackchance() == 3 and runaway == False:
+                    if reputationrng() <= 3 and runaway == False:
                         delay_print("The scavenger jumps out of the way, scrambling to it's feet and staring at you\n")
                         time.sleep(2)
                         print(" ")
                         time.sleep(2)
                         delay_print("Without another thought the scavenger dives towards a tunnel, squeezing through and running away\n")
                         runaway = True
-                    elif reputationrng > 3:
+                    elif reputationrng > 3 and runaway == False:
                         delay_print("The scavenger jumps out of the way, scrambling to it's feet and staring at you\n")
                         time.sleep(2)
                         print(" ")
@@ -107,7 +109,7 @@ def scavenger():
                         delay_print("It raises it's spear to you\n")
                         time.sleep(2)
                         print(" ")
-                        if attackchance() == 3:
+                        if attackchance() == 3 and runaway == False:
                             bigdelay_print("...\n")
                             delay_print("The spear clanks to the ground next to you\n")
                             bigdelay_print("O_O'\n")
@@ -121,24 +123,29 @@ def scavenger():
                             time.sleep(2)
                             print(" ")
                             delay_print("(You get the distinct thought that the Scavenger was embarrassed)")
-                        else:
+                        elif attackchance() > 3 and attackchance() < 3 and runaway == False:
                             bigdelay_print("...\n")
                             delay_print("The spear stabs right through your chest.\n")
                             time.sleep(2)
                             print(" ")
                             delay_print("The last thing you see before your vision goes black is the Scavenger running off ")
                             bigdelay_print("YOU DIED")
-                            winsound.PlaySound('death.wav', winsound.SND_FILENAME)
+                            winsound.PlaySound('death.wav', winsound.SND_ASYNC)
                 else:
                     delay_print("The spear peirces the Scavengers chest")
                     time.sleep(2)
                     print(" ")
                     delay_print("The creature doesn't even get a chance to react before it has already collapsed")
+                    runaway = True
 
 
 
 
-                    
 
 
+
+
+                
 print(scavenger())
+
+print("woah u at the end")
