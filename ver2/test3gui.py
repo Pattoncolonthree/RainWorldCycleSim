@@ -64,6 +64,10 @@ def printString(string):
         Label.configure(text=Label.cget('text') + char, font=('Arial', 18, 'bold'), fg="#2b213e", bg="#93a0bb")
         Label.update()
         time.sleep(.05)
+
+   
+
+
 Label = tk.Label(app)
 
 def delete(text):
@@ -79,17 +83,19 @@ def delete(text):
 
 
 slug = ImageLabel(app)
+Label.pack(padx=10, pady=10)
+Label.place(x= 110, y= 575)
 slug.pack(padx=10, pady=10)
 slug.load('scavandscug.gif')
 slug.place(x= 0, y=0)
 time.sleep(1)
-Label.pack(padx=10, pady=10)
-Label.place(x= 100, y= 575)
+
 winsound.PlaySound('threat.wav', winsound.SND_ASYNC)
 
 text = " You look towards the creature in front of you, it looks back at you\nit's quills spiking up."
 printString(text)
 delete(text)
+
 
 
 #scav = ImageLabel(app)
