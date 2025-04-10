@@ -65,11 +65,8 @@ def printString(string):
         Label.configure(text=Label.cget('text') + char, font=('Arial', 18),fg="#b00b1e")
         Label.update()
         time.sleep(.05)
-    time.sleep(5)
-    text = " "
+   
 
-
-text = " hiii"
 
 Label = tk.Label(app)
 
@@ -77,14 +74,12 @@ Label = tk.Label(app)
 
 slug = ImageLabel(app)
 Label.pack(padx=10, pady=10)
-Label.place(x= 0, y= 575)
+Label.place(x= 110, y= 575)
 slug.pack(padx=10, pady=10)
 slug.load('scavandscug.gif')
 slug.place(x= 0, y=0)
 time.sleep(1)
-printString(text)
-time.sleep(2)
-text = " hiii"
+text = "You look towards the creature in front of you, it looks back at you \n it's quills spiking up."
 printString(text)
 
 
