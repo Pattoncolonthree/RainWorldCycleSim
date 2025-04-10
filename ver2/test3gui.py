@@ -4,7 +4,7 @@ import time
 import os
 from PIL import Image, ImageTk
 from itertools import count
-
+import winsound
 
 class App(tk.Tk):
    def __init__(self):
@@ -85,7 +85,7 @@ slug.place(x= 0, y=0)
 time.sleep(1)
 Label.pack(padx=10, pady=10)
 Label.place(x= 100, y= 575)
-
+winsound.PlaySound('threat.wav', winsound.SND_ASYNC)
 
 text = " You look towards the creature in front of you, it looks back at you\nit's quills spiking up."
 printString(text)
