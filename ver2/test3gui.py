@@ -6,7 +6,6 @@ from PIL import Image, ImageTk
 from itertools import count
 
 
-
 class App(tk.Tk):
    def __init__(self):
       super().__init__()
@@ -14,9 +13,9 @@ app = App()
 
 
 
-app.geometry("900x700")
+app.geometry("1006x700")
 app.title("Cycle sim")
-app.configure(background='#eeefff')
+app.configure(background='#93a0bb')
 
 
 
@@ -62,30 +61,35 @@ class ImageLabel(tk.Label):
 
 def printString(string):
     for char in string:
-        Label.configure(text=Label.cget('text') + char, font=('Arial', 18),fg="#b00b1e")
+        Label.configure(text=Label.cget('text') + char, font=('Arial', 18, 'bold'), fg="#2b213e", bg="#93a0bb")
         Label.update()
         time.sleep(.05)
-    time.sleep(5)
-    text = " "
-
-
-text = " hiii"
-
 Label = tk.Label(app)
+
+def delete(text):
+    delete = (text)
+
+    if delete in text:
+        location = text.find(delete)
+        new_text = text[0:location]
+        
+        return printString(new_text)
+
 
 
 
 slug = ImageLabel(app)
-Label.pack(padx=10, pady=10)
-Label.place(x= 0, y= 575)
 slug.pack(padx=10, pady=10)
 slug.load('scavandscug.gif')
 slug.place(x= 0, y=0)
 time.sleep(1)
+Label.pack(padx=10, pady=10)
+Label.place(x= 100, y= 575)
+
+
+text = " You look towards the creature in front of you, it looks back at you\nit's quills spiking up."
 printString(text)
-time.sleep(2)
-text = " hiii"
-printString(text)
+delete(text)
 
 
 #scav = ImageLabel(app)
