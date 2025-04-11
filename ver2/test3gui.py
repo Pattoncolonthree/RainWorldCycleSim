@@ -5,7 +5,7 @@ import os
 from PIL import Image, ImageTk
 from itertools import count
 import winsound
-
+from Creatureinteractions import *
 class App(tk.Tk):
    def __init__(self):
       super().__init__()
@@ -57,13 +57,23 @@ class ImageLabel(tk.Label):
             self.config(image=self.frames[self.loc])
             self.after(self.delay, self.next_frame)
 
+length = "wwwwwwwwwwwwwwwwwwww"
 
+def sleepy():
+    for char in length:
+        time.sleep(0.05)
+        Label.update()
 
 def printString(string):
     for char in string:
         Label.configure(text=Label.cget('text') + char, font=('Arial', 18, 'bold'), fg="#2b213e", bg="#93a0bb")
         Label.update()
         time.sleep(.05)
+    sleepy()
+    text = Label.configure(text= " ")
+    Label.update
+
+
 
    
 
@@ -81,10 +91,11 @@ def delete(text):
 
 
 
-
+ImageLabel(bg="#93a0bb")
 slug = ImageLabel(app)
 Label.pack(padx=10, pady=10)
 Label.place(x= 110, y= 575)
+LabelFrame(cnf={borderwidth = 0})
 slug.pack(padx=10, pady=10)
 slug.load('scavandscug.gif')
 slug.place(x= 0, y=0)
@@ -94,8 +105,18 @@ winsound.PlaySound('threat.wav', winsound.SND_ASYNC)
 
 text = " You look towards the creature in front of you, it looks back at you\nit's quills spiking up."
 printString(text)
-delete(text)
 
+
+
+if reputation(aggression) <= 1:
+    text = ("The Scavenger looks at you warily, clutching it's spear to it's chest protectively")
+    printString(text)
+elif reputation(aggression) > 1 and reputation(aggression) <= 3:
+    text = ("The Scavenger raises it's spear towards you, but seems more defensive than offensive")
+    printString(text)
+else:
+    text = ("The Scavenger frills up, raising it's spear and you know it intends\n to use it.")
+    printString(text)
 
 
 #scav = ImageLabel(app)
