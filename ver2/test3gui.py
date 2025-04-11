@@ -37,9 +37,9 @@ class ImageLabel(tk.Label):
         try:
             self.delay = im.info['duration']
         except:
-            self.delay = 100
+            self.delay = 1000
 
-        if len(self.frames) == 100:
+        if len(self.frames) == 1000:
             self.config(image=self.frames[0])
         else:
             self.next_frame()
@@ -57,71 +57,54 @@ class ImageLabel(tk.Label):
             self.config(image=self.frames[self.loc])
             self.after(self.delay, self.next_frame)
 
-length = "wwwwwwwwwwwwwwwwwwww"
-
+length = "wwwwwwwwwwwwwwwwwwwww"
+slength = "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww"
+spritelength = "wwwwwwwwwwwwwwwwwwwwwwww"
 def sleepy():
     for char in length:
         time.sleep(0.05)
+        Label.update()
+
+
+def wait():
+    for char in spritelength:
+        time.sleep(0.0625)
+        Label.update()
+
+def stringlength():
+    for char in slength:
+        time.sleep(0.0625)
         Label.update()
 
 def printString(string):
     for char in string:
         Label.configure(text=Label.cget('text') + char, font=('Arial', 18, 'bold'), fg="#2b213e", bg="#93a0bb")
         Label.update()
-        time.sleep(.05)
+        time.sleep(0.0625)
     sleepy()
     text = Label.configure(text= " ")
     Label.update
 
+def longprintString(string):
+    for char in string:
+        Label.configure(text=Label.cget('text') + char, font=('Arial', 18, 'bold'), fg="#2b213e", bg="#93a0bb")
+        Label.update()
+        stringlength()
+    sleepy()
+    text = Label.configure(text= " ")
+    Label.update
 
 
    
 
 
 Label = tk.Label(app)
-
-def delete(text):
-    delete = (text)
-
-    if delete in text:
-        location = text.find(delete)
-        new_text = text[0:location]
-        
-        return printString(new_text)
-
-
-
-ImageLabel(bg="#93a0bb")
-slug = ImageLabel(app)
 Label.pack(padx=10, pady=10)
 Label.place(x= 110, y= 575)
-LabelFrame(cnf={borderwidth = 0})
+
+ImageLabel(bg="#93a0bb")
+slug = ImageLabel(app, borderwidth = 0)
 slug.pack(padx=10, pady=10)
 slug.load('scavandscug.gif')
 slug.place(x= 0, y=0)
-time.sleep(1)
 
-winsound.PlaySound('threat.wav', winsound.SND_ASYNC)
-
-text = " You look towards the creature in front of you, it looks back at you\nit's quills spiking up."
-printString(text)
-
-
-
-if reputation(aggression) <= 1:
-    text = ("The Scavenger looks at you warily, clutching it's spear to it's chest protectively")
-    printString(text)
-elif reputation(aggression) > 1 and reputation(aggression) <= 3:
-    text = ("The Scavenger raises it's spear towards you, but seems more defensive than offensive")
-    printString(text)
-else:
-    text = ("The Scavenger frills up, raising it's spear and you know it intends\n to use it.")
-    printString(text)
-
-
-#scav = ImageLabel(app)
-#scav.pack(padx=10, pady=10)
-#scav.load('scav.gif')
-#scav.place(x= 650, y=50)
-
-app.mainloop()
