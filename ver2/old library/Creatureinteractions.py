@@ -7,8 +7,7 @@ import threading
 #imports
 
 aggression = 1
-has_spear = True
-has_rock = True
+
 seconds = time.time()
 local_time = time.ctime(seconds)
 creature = "rainworl"
