@@ -1,9 +1,17 @@
 #imports and set ups
 from Creatureinteractions import *
 from test3gui import *
-
+from test4gifs import *
 has_spear = True
 has_rock = False
+import time
+import random
+import sys
+import winsound
+import threading
+from test4gifs import *
+
+
 
 def attackchance():
     return random.randint(1,2)
@@ -30,7 +38,6 @@ def scavgui():
     #I HAVE PERMISSION FROM RIVOTTER AND JAMES THERRIAN(James Primate) TO USE BOTH THE MUSIC AND AUDIO FROM THE GAME: Rain World by Video Cult
     text = ("You look towards the creature in front of you, it looks back at you.\n It's quills spike up.")
     printString(text)
-
     if reputation(aggression) <= 1:
         text = ("The Scavenger looks at you warily, clutching it's spear to\nit's chest protectively\n")
         printString(text)
@@ -41,60 +48,71 @@ def scavgui():
         text = ("The Scavenger frills up, raising it's spear, and you know\nit intends to use it.\n")
         printString(text)
     if has_spear == True or has_rock == True:
-            text = (f"You look warily at the Scavenger, raising your own {weapon} defensively\n")
-            printString(text)
-            text = (f"You think of your options. Throw the {weapon} at it?\nDrop the weapon for peace??\n")
-            printString(text)
-            action = input("What do you do? ").lower()
-            if action == "throw" or action == "throw spear" or action == "attack":
-                if attackchance() <= 2:
-                    if reputationrng() <= 10:
-                        slug.load('scavdodgerun.gif')
-                        text = ("The scavenger jumps out of the way, scrambling to it's feet and staring at you\n")
+        text = (f"You look warily at the Scavenger, raising your own Spear defensively\n")
+        printString(text)
+        text = (f"You think of your options. Throw the Spear at it?\nDrop the weapon for peace??\n")
+        printString(text)
+        action = input("What do you do? ").lower()
+        if action == "throw" or action == "throw spear" or action == "attack":
+            if attackchance() <= 2:
+                if reputationrng() <= 10:
+                    scavdodgerun.load('scavdodgerun.gif')
+                    text = ("The scavenger jumps out of the way, scrambling to it's feet and staring at you\n")
+                    printString(text)
+                    text = ("Without another thought the scavenger dives towards a tunnel, squeezing through and running away\n")
+                    printString(text)
+                    scug.load('scug.gif')
+                    runaway = True
+                elif reputationrng() > 11:
+                    text = ("The scavenger jumps out of the way, scrambling to it's feet and staring at you\n")
+                    printString(text)
+                    text = ("The creature's spikes slowly rise as it turns to you\n")
+                    printString(text)
+                    text = ("It raises it's spear to you\n")
+                    printString(text)
+                    if attackchance() == 2:
+                        text = ("...")
+                        longprintString(text)
+                        text = ("The spear clanks to the ground next to you")
                         printString(text)
-                        text = ("Without another thought the scavenger dives towards a tunnel, squeezing through and running away\n")
+                        text = ("O_O'")
+                        longprintString(text)
+                        text = ("You and the Scavenger stare at eachother for a moment")
                         printString(text)
-                        slug.load('scug.gif')
-                        runaway = True
-                    elif reputationrng() > 11:
-                        text = ("The scavenger jumps out of the way, scrambling to it's feet and staring at you\n")
+                        text = ("It takes a small step to the side")
                         printString(text)
-                        text = ("The creature's spikes slowly rise as it turns to you\n")
+                        text = ("The Scavenger then sprints in to the tunnel next to it")
                         printString(text)
-                        text = ("It raises it's spear to you\n")
-                        printString(text)
-                        if attackchance() == 2:
-                            text = ("...")
-                            longprintString(text)
-                            text = ("The spear clanks to the ground next to you")
-                            printString(text)
-                            text = ("O_O'")
-                            longprintString(text)
-                            text = ("You and the Scavenger stare at eachother for a moment")
-                            printString(text)
-                            text = ("It takes a small step to the side")
-                            printString(text)
-                            text = ("The Scavenger then sprints in to the tunnel next to it")
-                            printString(text)
-                            text = ("(You get the distinct thought that the Scavenger was embarrassed)")
-                        else:
-                            text = ("...\n")
-                            longprintString(text)
-                            text = ("The spear stabs right through your chest.\n")
-                            printString(text)
-                            text = ("The last thing you see before your vision goes black is the Scavenger running off")
-                            printString(text)
-                            text = ("YOU DIED")
-                            
-                            winsound.PlaySound('death.wav', winsound.SND_FILENAME)
+                        text = ("(You get the distinct thought that the Scavenger was embarrassed)")
                     else:
-                        text = ("what,,,,,")
+                        text = ("...\n")
+                        longprintString(text)
+                        text = ("The spear stabs right through your chest.\n")
                         printString(text)
+                        text = ("The last thing you see before your vision goes black is the Scavenger running off")
+                        printString(text)
+                        text = ("YOU DIED")
+                        
+                        winsound.PlaySound('death.wav', winsound.SND_FILENAME)
                 else:
-                    text = ("The spear peirces the Scavengers chest")
+                    text = ("what,,,,,")
                     printString(text)
-                    text = ("The creature doesn't even get a chance to react before it has already collapsed\n")
-                    printString(text)
+            else:
+                text = ("The spear peirces the Scavengers chest")
+                printString(text)
+                text = ("The creature doesn't even get a chance to react before it has already collapsed\n")
+                printString(text)
+        elif action == "drop" or action == "drop spear" or action == "peace":
+            text = ("You slowly toss the spear away from yourself")
+            grr = True
+            printString(text)
+            print(reputation(aggression))
+            text = ("The scavenger blinks at you, lowering it's own spear")
+            printString(text)
+
+    else:
+        text = ("You look warily at the Scavenger, ")
+
 
 
 
