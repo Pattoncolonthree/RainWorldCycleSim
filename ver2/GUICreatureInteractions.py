@@ -1,7 +1,7 @@
 #imports and set ups
 has_spear = True
 has_rock = False
-grr = False
+
 import time
 import random
 import sys
@@ -11,7 +11,24 @@ from test3gui import *
 from test4gifs import *
 from defs import *
 
+if has_spear == False:
+    scavscug = ImageLabel(app, borderwidth = 0)
+    scavscug.pack(padx=10, pady=10)
+    scavscug.load('scavandscug.gif')
+    scavscug.place(x= 0, y=0)
+else:
+    scavscugsp = ImageLabel(app, borderwidth = 0)
+    scavscugsp.pack(padx=10, pady=10)
+    scavscugsp.load('scavandscugspear.gif')
+    scavscugsp.place(x= 0, y=0)
 
+scavdodgerun = ImageLabel(app, borderwidth = 0)
+scavdodgerun.pack(padx=10, pady=10)
+scavdodgerun.place(x= 0, y=0)
+
+scug = ImageLabel(app, borderwidth = 0)
+scug.pack(padx=10, pady=10)
+scug.place(x= 0, y=0)
 
 def attackchance():
     return random.randint(1,2)
@@ -21,8 +38,6 @@ def reputation(aggression):
         aggression += 2
     if has_rock == True:
         aggression += 1
-    if grr == True:
-        aggression -= 2
     return aggression
 #adding the reputation system base, in the code extra things will make the aggression go up.
 
@@ -40,36 +55,36 @@ def scavgui():
     text = ("You look towards the creature in front of you, it looks back at you.\n It's quills spike up.")
     printString(text)
     if reputation(aggression) <= 1:
-        text = ("The Scavenger looks at you warily, clutching it's spear to\nit's chest protectively\n")
+        text = ("The Scavenger looks at you warily, clutching it's spear to\nit's chest protectively  ")
         printString(text)
     elif reputation(aggression) > 1 and reputation(aggression) <= 3:
-        text = ("The Scavenger raises it's spear towards you, but seems more\ndefensive than offensive\n")
+        text = ("The Scavenger raises it's spear towards you, but seems more\ndefensive than offensive")
         printString(text)
     else:
-        text = ("The Scavenger frills up, raising it's spear, and you know\nit intends to use it.\n")
+        text = ("The Scavenger frills up, raising it's spear, and you know\nit intends to use it.")
         printString(text)
     if has_spear == True or has_rock == True:
-        text = (f"You look warily at the Scavenger, raising your own Spear defensively\n")
+        text = (f"You look warily at the Scavenger, raising your own Spear defensively")
         printString(text)
-        text = (f"You think of your options. Throw the Spear at it?\nDrop the weapon for peace??\n")
+        text = (f"You think of your options. Throw the Spear at it?\nDrop the weapon for peace??")
         printString(text)
         action = input("What do you do? ").lower()
         if action == "throw" or action == "throw spear" or action == "attack":
             if attackchance() <= 2:
                 if reputationrng() <= 10:
                     scavdodgerun.load('scavdodgerun.gif')
-                    text = ("The scavenger jumps out of the way, scrambling to it's feet and staring at you\n")
+                    text = ("The scavenger jumps out of the way, scrambling to it's feet and staring at you")
                     printString(text)
-                    text = ("Without another thought the scavenger dives towards a tunnel, squeezing through and running away\n")
+                    text = ("Without another thought the scavenger dives towards a tunnel, squeezing through and running away")
                     printString(text)
                     scug.load('scug.gif')
                     runaway = True
                 elif reputationrng() > 11:
-                    text = ("The scavenger jumps out of the way, scrambling to it's feet and staring at you\n")
+                    text = ("The scavenger jumps out of the way, scrambling to it's feet and staring at you")
                     printString(text)
-                    text = ("The creature's spikes slowly rise as it turns to you\n")
+                    text = ("The creature's spikes slowly rise as it turns to you")
                     printString(text)
-                    text = ("It raises it's spear to you\n")
+                    text = ("It raises it's spear to you")
                     printString(text)
                     if attackchance() == 2:
                         text = ("...")

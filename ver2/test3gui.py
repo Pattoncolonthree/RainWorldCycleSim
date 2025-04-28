@@ -5,7 +5,6 @@ import os
 from PIL import Image, ImageTk
 from itertools import count
 import winsound
-from Creatureinteractions import *
 class App(tk.Tk):
    def __init__(self):
       super().__init__()
