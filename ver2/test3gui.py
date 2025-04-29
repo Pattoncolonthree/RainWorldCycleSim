@@ -1,3 +1,4 @@
+
 import tkinter as tk
 from tkinter import *
 import time
@@ -14,7 +15,7 @@ app = App()
 
 app.geometry("1006x700")
 app.title("Cycle sim")
-app.configure(background='#93a0bb')
+app.configure(background='#180821')
 
 
 
@@ -77,7 +78,7 @@ def stringlength():
 
 def printString(string):
     for char in string:
-        Label.configure(text=Label.cget('text') + char, font=('Arial', 18, 'bold'), fg="#2b213e", bg="#93a0bb")
+        Label.configure(text=Label.cget('text') + char, font=('Arial', 18, 'bold'), fg="#2b213e", bg="#180821")
         Label.update()
         time.sleep(0.0625)
     sleepy()
@@ -86,7 +87,7 @@ def printString(string):
 
 def longprintString(string):
     for char in string:
-        Label.configure(text=Label.cget('text') + char, font=('Arial', 18, 'bold'), fg="#2b213e", bg="#93a0bb")
+        Label.configure(text=Label.cget('text') + char, font=('Arial', 18, 'bold'), fg="#2b213e", bg="#180821")
         Label.update()
         stringlength()
     sleepy()
@@ -101,7 +102,7 @@ Label = tk.Label(app)
 Label.pack(padx=10, pady=10)
 Label.place(x= 110, y= 575)
 
-ImageLabel(bg="#93a0bb")
+ImageLabel(bg="#180821")
 slug = ImageLabel(app, borderwidth = 0)
 slug.pack(padx=10, pady=10)
 slug.load('scavandscug.gif')
