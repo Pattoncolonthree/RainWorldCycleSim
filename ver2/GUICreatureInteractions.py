@@ -26,13 +26,13 @@ scavdodgerun = ImageLabel(app, borderwidth = 0)
 scavdodgerun.pack(padx=10, pady=10)
 scavdodgerun.place(x= 0, y=0)
 
-scug = ImageLabel(app, borderwidth = 0)
-scug.pack(padx=10, pady=10)
-scug.place(x= 0, y=0)
-
 spike = ImageLabel(app, borderwidth = 0)
 spike.pack(padx=10, pady=10)
 spike.place(x= 0, y=0)
+
+spiked = ImageLabel(app, borderwidth = 0)
+spiked.pack(padx=10, pady=10)
+spiked.place(x= 0, y=0)
 
 scavmiss = ImageLabel(app, borderwidth = 0)
 scavmiss.pack(padx=10, pady=10)
@@ -41,6 +41,10 @@ scavmiss.place(x= 0, y=0)
 scavhit = ImageLabel(app, borderwidth = 0)
 scavhit.pack(padx=10, pady=10)
 scavhit.place(x= 0, y=0)
+
+scug = ImageLabel(app, borderwidth = 0)
+scug.pack(padx=10, pady=10)
+scug.place(x= 0, y=0)
 
 def attackchance():
     return random.randint(1,2)
@@ -82,7 +86,7 @@ def scavgui():
         printString(text)
         action = input("What do you do? ").lower()
         if action == "throw" or action == "throw spear" or action == "attack":
-            if attackchance() < 2:
+            if attackchance() <= 2:
                 if reputationrng() <= 0:
                     scavdodgerun.load('scavdodgerun.gif')
                     text = ("The scavenger jumps out of the way, scrambling to it's feet and staring at you")
@@ -95,27 +99,23 @@ def scavgui():
                     spike.load('spikeup.gif')
                     text = ("The scavenger jumps out of the way, scrambling to it's feet and staring at you")
                     printString(text)
-                    text = ("The creature's spikes slowly rise as it turns to you")
-                    printString(text)
+                    spiked.load('spikedup.gif')
                     text = ("It raises it's spear to you")
                     printString(text)
-                    if attackchance() == 2:
-                        scavmiss.load('throwmissthrowmiss.gif')
+                    if attackchance() <= 2:
                         text = ("...")
-                        longprintString(text)
+                        printString(text)
+                        scavmiss.load('scavmiss.gif')
                         text = ("The spear clanks to the ground next to you")
                         printString(text)
                         text = ("O_O'")
-                        longprintString(text)
-                        text = ("You and the Scavenger stare at eachother for a moment")
                         printString(text)
-                        text = ("It takes a small step to the side")
-                        printString(text)
-                        text = ("The Scavenger then sprints in to the tunnel next to it")
+                        scug.load('scug.gif')
+                        text = ("The Scavenger sprints in to the tunnel next to it")
                         printString(text)
                         text = ("(You get the distinct thought that the Scavenger was embarrassed)")
                     else:
-                        scavhit.load('throwmissthrowmiss.gif')
+                        scavhit.load('scavhit.gif')
                         text = ("...\n")
                         longprintString(text)
                         text = ("The spear stabs right through your chest.\n")

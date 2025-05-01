@@ -78,7 +78,7 @@ def stringlength():
 
 def printString(string):
     for char in string:
-        Label.configure(text=Label.cget('text') + char, font=('Arial', 18, 'bold'), fg="#2b213e", bg="#180821")
+        Label.configure(text=Label.cget('text') + char, font=('Arial', 18, 'bold'), fg="#d1cdf0", bg="#180821")
         Label.update()
         time.sleep(0.0625)
     sleepy()
@@ -87,7 +87,7 @@ def printString(string):
 
 def longprintString(string):
     for char in string:
-        Label.configure(text=Label.cget('text') + char, font=('Arial', 18, 'bold'), fg="#2b213e", bg="#180821")
+        Label.configure(text=Label.cget('text') + char, font=('Arial', 18, 'bold'), fg="#d1cdf0", bg="#180821")
         Label.update()
         stringlength()
     sleepy()
