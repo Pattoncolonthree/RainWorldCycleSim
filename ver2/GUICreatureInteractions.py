@@ -38,13 +38,13 @@ scavmiss = ImageLabel(app, borderwidth = 0)
 scavmiss.pack(padx=10, pady=10)
 scavmiss.place(x= 0, y=0)
 
-scavhit = ImageLabel(app, borderwidth = 0)
-scavhit.pack(padx=10, pady=10)
-scavhit.place(x= 0, y=0)
-
 scug = ImageLabel(app, borderwidth = 0)
 scug.pack(padx=10, pady=10)
 scug.place(x= 0, y=0)
+
+scavkill = ImageLabel(app, borderwidth = 0)
+scavkill.pack(padx=10, pady=10)
+scavkill.place(x= 0, y=0)
 
 def attackchance():
     return random.randint(1,2)
@@ -93,7 +93,7 @@ def scavgui():
                     printString(text)
                     text = ("Without another thought the scavenger dives towards a tunnel, squeezing through and running away")
                     printString(text)
-                    scug.load('scug.gif')
+                    scavscugsp.load('scug.gif')
                     runaway = True
                 elif reputationrng() > 0:
                     spike.load('spikeup.gif')
@@ -102,7 +102,7 @@ def scavgui():
                     spiked.load('spikedup.gif')
                     text = ("It raises it's spear to you")
                     printString(text)
-                    if attackchance() <= 2:
+                    if attackchance() > 2:
                         text = ("...")
                         printString(text)
                         scavmiss.load('scavmiss.gif')
@@ -110,14 +110,12 @@ def scavgui():
                         printString(text)
                         text = ("O_O'")
                         printString(text)
-                        scug.load('scug.gif')
                         text = ("The Scavenger sprints in to the tunnel next to it")
                         printString(text)
                         text = ("(You get the distinct thought that the Scavenger was embarrassed)")
                     else:
-                        scavhit.load('scavhit.gif')
                         text = ("...\n")
-                        longprintString(text)
+                        printString(text)
                         text = ("The spear stabs right through your chest.\n")
                         printString(text)
                         text = ("The last thing you see before your vision goes black is the Scavenger running off")
