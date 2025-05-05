@@ -46,6 +46,10 @@ scavkill = ImageLabel(app, borderwidth = 0)
 scavkill.pack(padx=10, pady=10)
 scavkill.place(x= 0, y=0)
 
+rahh = ImageLabel(app, borderwidth = 0)
+rahh.pack(padx=10, pady=10)
+rahh.place(x= 0, y=0)
+
 def attackchance():
     return random.randint(1,2)
 
@@ -67,7 +71,7 @@ def reputationrng():
 def scavgui():
     winsound.PlaySound('threat.wav', winsound.SND_ASYNC)
     #winsound!!!! will play the audio as the gameplays and will loop! playing any other sound cancels this but i am gonna attempt to fix this :3
-    #I HAVE PERMISSION FROM RIVOTTER AND JAMES THERRIAN(James Primate) TO USE BOTH THE MUSIC AND AUDIO FROM THE GAME: Rain World by Video Cult
+    #I HAVE PERMISSION FROM RIVOTTER AND JAMES THERRIAN(James Primate) TO USE BOTH THE MUSIC AND AUDIO FROM THE GAME: Rain World by Video Cult                                                                                                                   
     text = ("You look towards the creature in front of you, it looks back at you.\n It's quills spike up.")
     printString(text)
     if reputation(aggression) <= 1:
@@ -114,14 +118,16 @@ def scavgui():
                         printString(text)
                         text = ("(You get the distinct thought that the Scavenger was embarrassed)")
                     else:
-                        text = ("...\n")
+                        text = ("...")
                         printString(text)
-                        text = ("The spear stabs right through your chest.\n")
+                        scavmiss.load('scavhit.gif')
+                        text = ("The spear stabs right through your chest.")
                         printString(text)
-                        text = ("The last thing you see before your vision goes black is the Scavenger running off")
+                        text = ("The last thing you see before your vision goes black \n is the Scavenger running off")
                         printString(text)
+                        rahh.load('black.gif')
                         text = ("YOU DIED")
-                        
+                        printString(text)
                         winsound.PlaySound('death.wav', winsound.SND_FILENAME)
                 else:
                     text = ("what,,,,,")
