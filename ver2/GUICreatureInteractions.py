@@ -1,5 +1,5 @@
 #imports and set ups
-has_spear = True
+
 has_rock = False
 
 import time
@@ -10,6 +10,14 @@ import threading
 from test3gui import *
 from test4gifs import *
 from defs import *
+
+def spearchance():
+    return random.randint(1,2)
+
+if spearchance() == 1:
+    has_spear = True
+else:
+    has_spear = False
 
 if has_spear == False:
     scavscug = ImageLabel(app, borderwidth = 0)
@@ -129,6 +137,8 @@ def scavgui():
                         text = ("YOU DIED")
                         printString(text)
                         winsound.PlaySound('death.wav', winsound.SND_FILENAME)
+                        time.sleep(5)
+                        quit
                 else:
                     text = ("what,,,,,")
                     printString(text)
@@ -139,14 +149,15 @@ def scavgui():
                 printString(text)
         elif action == "drop" or action == "drop spear" or action == "peace":
             text = ("You slowly toss the spear away from yourself")
-            grr = True
             printString(text)
             print(reputation(aggression))
             text = ("The scavenger blinks at you, lowering it's own spear")
             printString(text)
 
     else:
-        text = ("You look warily at the Scavenger, ")
+        text = ("You look warily at the Scavenger, seeing it's armed with a spear")
+        printString(text)
+        text = ("you think of your options. Try to run past? ")
 
 
 
