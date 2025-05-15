@@ -150,6 +150,7 @@ def scavgui():
         elif action == "drop" or action == "drop spear" or action == "peace":
             text = ("You slowly toss the spear away from yourself")
             printString(text)
+            rahh.load('scavandscug')
             print(reputation(aggression))
             text = ("The scavenger blinks at you, lowering it's own spear")
             printString(text)
@@ -157,7 +158,7 @@ def scavgui():
     else:
         text = ("You look warily at the Scavenger, seeing it's armed with a spear")
         printString(text)
-        text = ("you think of your options. Try to run past? ")
+        text = ("you think of your options. Try to run past? maybe crouch to show you aren't a threat")
 
 
 
