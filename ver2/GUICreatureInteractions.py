@@ -158,6 +158,8 @@ def scavgui():
             text = ("The scavenger blinks at you, lowering it's own spear")
             printString(text)
             button1pressed = False
+        else:
+            print("hiii")
 
 
     else:
