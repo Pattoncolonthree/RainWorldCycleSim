@@ -10,9 +10,10 @@ import threading
 from test3gui import *
 from test4gifs import *
 from defs import *
-
+button2["state"] = DISABLED
+button1["state"] = DISABLED
 def spearchance():
-    return random.randint(1,2)
+    return random.randint(1,1)
 
 if spearchance() == 1:
     has_spear = True
@@ -75,7 +76,6 @@ def reputationrng():
 #code is to make a random number based on the level of aggression from the scavenger
 # The code will be used for when the aggression is higher, the chance of the scavenger attacking is higher.
 
-
 def scavgui():
     winsound.PlaySound('threat.wav', winsound.SND_ASYNC)
     #winsound!!!! will play the audio as the gameplays and will loop! playing any other sound cancels this but i am gonna attempt to fix this :3
@@ -91,13 +91,17 @@ def scavgui():
     else:
         text = ("The Scavenger frills up, raising it's spear, and you know\nit intends to use it.")
         printString(text)
+    #if, elif, else statements depending on the players reputation with the scavenger and changing the starting statement.
     if has_spear == True or has_rock == True:
         text = (f"You look warily at the Scavenger, raising your own Spear defensively")
         printString(text)
         text = (f"You think of your options. Throw the Spear at it?\nDrop the weapon for peace??")
         printString(text)
-        action = input("What do you do? ").lower()
-        if action == "throw" or action == "throw spear" or action == "attack":
+        button2["state"] = NORMAL
+        button1["state"] = NORMAL
+        button1.config(text="Throw spear")
+        button2.config(text="drop spear")
+        if  button1Clicked == True:
             if attackchance() <= 2:
                 if reputationrng() <= 0:
                     scavdodgerun.load('scavdodgerun.gif')
@@ -124,7 +128,6 @@ def scavgui():
                         printString(text)
                         text = ("The Scavenger sprints in to the tunnel next to it")
                         printString(text)
-                        text = ("(You get the distinct thought that the Scavenger was embarrassed)")
                     else:
                         text = ("...")
                         printString(text)
@@ -147,13 +150,15 @@ def scavgui():
                 printString(text)
                 text = ("The creature doesn't even get a chance to react before it has already collapsed\n")
                 printString(text)
-        elif action == "drop" or action == "drop spear" or action == "peace":
+        elif button2Clicked == True:
             text = ("You slowly toss the spear away from yourself")
             printString(text)
             rahh.load('scavandscug')
             print(reputation(aggression))
             text = ("The scavenger blinks at you, lowering it's own spear")
             printString(text)
+            button1pressed = False
+
 
     else:
         text = ("You look warily at the Scavenger, seeing it's armed with a spear")

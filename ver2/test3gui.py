@@ -17,31 +17,10 @@ app.geometry("1006x700")
 app.title("Cycle sim")
 app.configure(background='#180821')
 
-def button_clicked():
-    print("Button clicked!")
-    
-button = tk.Button(app, 
-                   text="Click Me", 
-                   command=button_clicked,
-                   activebackground="blue", 
-                   activeforeground="white",
-                   anchor="center",
-                   bd=3,
-                   bg="lightgray",
-                   cursor="hand2",
-                   disabledforeground="gray",
-                   fg="black",
-                   font=("Arial", 12),
-                   height=2,
-                   highlightbackground="black",
-                   highlightcolor="green",
-                   highlightthickness=2,
-                   justify="center",
-                   overrelief="raised",
-                   padx=10,
-                   pady=5,
-                   width=15,
-                   wraplength=100)
+
+
+
+
 
 class ImageLabel(tk.Label):
     """a label that displays images, and plays them if they are gifs"""
@@ -121,4 +100,63 @@ slug = ImageLabel(app, borderwidth = 0)
 slug.pack(padx=10, pady=10)
 slug.load('scavandscug.gif')
 slug.place(x= 0, y=0)
+
+
+button1Clicked  = False
+button2Clicked  = False
+
+def option1():
+  global button1Clicked
+  button1Clicked = not button1Clicked 
+  button1["state"] = DISABLED
+  button2["state"] = DISABLED
+    
+def option2():
+  global button2Clicked
+  button2Clicked = not button2Clicked 
+  button2["state"] = DISABLED
+  button1["state"] = DISABLED
+
+
+button1 = tk.Button(app, 
+                   text="", 
+                   command=option1,
+                   activebackground="#49365a", 
+                   activeforeground="#d1cdf0",
+                   bd=0,
+                   bg="#332441",
+                   cursor="hand2",
+                   disabledforeground="#484659",
+                   fg="#d1cdf0",
+                   font=("Arial", 12, 'bold'),
+                   height=2,
+                   highlightbackground="black",
+                   highlightcolor="green",
+                   padx=10,
+                   pady=5,
+                   width=15)
+button1.pack(padx=20, pady=20)
+button1.place(x=200, y=635)
+
+
+button2 = tk.Button(app, 
+                   text="", 
+                   command=option2,
+                   activebackground="#49365a", 
+                   activeforeground="#d1cdf0",
+                   bd=0,
+                   bg="#332441",
+                   cursor="hand2",
+                   disabledforeground="#484659",
+                   fg="#d1cdf0",
+                   font=("Arial", 12, 'bold'),
+                   height=2,
+                   highlightbackground="black",
+                   highlightcolor="green",
+                   padx=10,
+                   pady=5,
+                   width=15)
+button2.pack(padx=20, pady=20)
+button2.place(x=600, y=635)
+
 

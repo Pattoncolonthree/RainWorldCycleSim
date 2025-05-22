@@ -1,0 +1,23 @@
+import tkinter as tk
+
+class App(tk.Tk):
+   def __init__(self):
+      super().__init__()
+app = App()
+
+def callback():
+    global buttonClicked
+    buttonClicked = not buttonClicked 
+
+
+buttonClicked  = False # Bfore first click
+
+b = tk.Button(app, text="Smth", command=callback)
+b.pack()
+
+
+
+input('hi ')
+if buttonClicked == True:
+   print("RAHHHHH KMS")
+app.mainloop()
