@@ -17,7 +17,31 @@ app.geometry("1006x700")
 app.title("Cycle sim")
 app.configure(background='#180821')
 
-
+def button_clicked():
+    print("Button clicked!")
+    
+button = tk.Button(app, 
+                   text="Click Me", 
+                   command=button_clicked,
+                   activebackground="blue", 
+                   activeforeground="white",
+                   anchor="center",
+                   bd=3,
+                   bg="lightgray",
+                   cursor="hand2",
+                   disabledforeground="gray",
+                   fg="black",
+                   font=("Arial", 12),
+                   height=2,
+                   highlightbackground="black",
+                   highlightcolor="green",
+                   highlightthickness=2,
+                   justify="center",
+                   overrelief="raised",
+                   padx=10,
+                   pady=5,
+                   width=15,
+                   wraplength=100)
 
 class ImageLabel(tk.Label):
     """a label that displays images, and plays them if they are gifs"""
@@ -84,16 +108,6 @@ def printString(string):
     sleepy()
     text = Label.configure(text= " ")
     Label.update
-
-def longprintString(string):
-    for char in string:
-        Label.configure(text=Label.cget('text') + char, font=('Arial', 18, 'bold'), fg="#d1cdf0", bg="#180821")
-        Label.update()
-        stringlength()
-    sleepy()
-    text = Label.configure(text= " ")
-    Label.update
-
 
    
 

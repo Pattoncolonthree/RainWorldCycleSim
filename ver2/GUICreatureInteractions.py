@@ -160,6 +160,8 @@ def scavgui():
         printString(text)
         text = ("you think of your options. Try to run past? maybe crouch to show you aren't a threat")
 
+    
+
 
 
 
