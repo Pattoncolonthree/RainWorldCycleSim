@@ -101,7 +101,13 @@ def scavgui():
         button1["state"] = NORMAL
         button1.config(text="Throw spear")
         button2.config(text="drop spear")
+        while not button1Clicked and not button2Clicked:
+            sleepy()
+            print(button1Clicked)
+
+        
         if  button1Clicked == True:
+            print("helllllllo true")
             if attackchance() <= 2:
                 if reputationrng() <= 0:
                     scavdodgerun.load('scavdodgerun.gif')

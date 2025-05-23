@@ -19,9 +19,6 @@ app.configure(background='#180821')
 
 
 
-
-
-
 class ImageLabel(tk.Label):
     """a label that displays images, and plays them if they are gifs"""
     def load(self, im):
@@ -60,24 +57,14 @@ class ImageLabel(tk.Label):
             self.config(image=self.frames[self.loc])
             self.after(self.delay, self.next_frame)
 
-length = "wwwwwwwwwwwwwwwwwwwww"
-slength = "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww"
-spritelength = "wwwwwwwwwwwwwwwwwwwwwwww"
+length = "w"
+
+#wwwwwwwwwwwwwwwwwwwww
 def sleepy():
     for char in length:
         time.sleep(0.05)
         Label.update()
 
-
-def wait():
-    for char in spritelength:
-        time.sleep(0.0625)
-        Label.update()
-
-def stringlength():
-    for char in slength:
-        time.sleep(0.0625)
-        Label.update()
 
 def printString(string):
     for char in string:
@@ -105,22 +92,23 @@ slug.place(x= 0, y=0)
 button1Clicked  = False
 button2Clicked  = False
 
-def option1():
-  global button1Clicked
-  button1Clicked = not button1Clicked 
-  button1["state"] = DISABLED
-  button2["state"] = DISABLED
+def option1(buttonClicked):
+  print( "hellooooo ")
+  print(buttonClicked)
+  buttonClicked = not buttonClicked 
+#  button1["state"] = DISABLED
+#  button2["state"] = DISABLED
     
-def option2():
-  global button2Clicked
-  button2Clicked = not button2Clicked 
-  button2["state"] = DISABLED
-  button1["state"] = DISABLED
+#def option2():
+#  global button2Clicked
+#  button2Clicked = not button2Clicked 
+#  button2["state"] = DISABLED
+#  button1["state"] = DISABLED
 
 
 button1 = tk.Button(app, 
                    text="", 
-                   command=option1,
+                   command=option1(button1Clicked),
                    activebackground="#49365a", 
                    activeforeground="#d1cdf0",
                    bd=0,
@@ -141,7 +129,7 @@ button1.place(x=200, y=635)
 
 button2 = tk.Button(app, 
                    text="", 
-                   command=option2,
+                   command=option1(button2Clicked),
                    activebackground="#49365a", 
                    activeforeground="#d1cdf0",
                    bd=0,

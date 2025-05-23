@@ -74,6 +74,7 @@ button2 = tk.Button(app,
 button2.pack(padx=20, pady=20)
 button2.place(x=600, y=635)
 
+input("hi ")
 
 if button1Clicked == True:
   print("yay")
