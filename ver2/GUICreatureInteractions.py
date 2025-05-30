@@ -97,17 +97,16 @@ def scavgui():
         printString(text)
         text = (f"You think of your options. Throw the Spear at it?\nDrop the weapon for peace??")
         printString(text)
-        button2["state"] = NORMAL
-        button1["state"] = NORMAL
-        button1.config(text="Throw spear")
-        button2.config(text="drop spear")
-        while not button1Clicked and not button2Clicked:
-            sleepy()
-            print(button1Clicked)
-
-        
-        if  button1Clicked == True:
-            print("helllllllo true")
+        #button2["state"] = NORMAL
+        #button1["state"] = NORMAL
+        #button1.config(text="Throw spear")
+        #button2.config(text="drop spear")
+        #while not button1Clicked and not button2Clicked:
+        #    sleepy()
+        #    print(button1Clicked)
+        #if  button1Clicked == True:
+            #print("helllllllo true")
+        if action == "throw" or action == "throw spear" or action == "attack":
             if attackchance() <= 2:
                 if reputationrng() <= 0:
                     scavdodgerun.load('scavdodgerun.gif')
@@ -156,7 +155,8 @@ def scavgui():
                 printString(text)
                 text = ("The creature doesn't even get a chance to react before it has already collapsed\n")
                 printString(text)
-        elif button2Clicked == True:
+        #elif button2Clicked == True:
+        elif action == "drop" or action == "drop spear" or action == "peace":
             text = ("You slowly toss the spear away from yourself")
             printString(text)
             rahh.load('scavandscug')
@@ -165,7 +165,34 @@ def scavgui():
             printString(text)
             button1pressed = False
         else:
-            print("hiii")
+            text = ("you didnt know what to do\njust standing there like an idiot")
+            printString(text)
+            text = ("The scavenger raises it's spear at you nervously")
+            if attackchance() > 2:
+                        text = ("...")
+                        printString(text)
+                        scavmiss.load('scavmiss.gif')
+                        text = ("The spear clanks to the ground next to you")
+                        printString(text)
+                        text = ("O_O'")
+                        printString(text)
+                        text = ("The Scavenger sprints in to the tunnel next to it")
+                        printString(text)
+                    else:
+                        text = ("...")
+                        printString(text)
+                        scavmiss.load('scavhit.gif')
+                        text = ("The spear stabs right through your chest.")
+                        printString(text)
+                        text = ("The last thing you see before your vision goes black \n is the Scavenger running off")
+                        printString(text)
+                        rahh.load('black.gif')
+                        text = ("YOU DIED")
+                        printString(text)
+                        winsound.PlaySound('death.wav', winsound.SND_FILENAME)
+                        time.sleep(5)
+                        quit
+
 
 
     else:
