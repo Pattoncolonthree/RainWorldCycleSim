@@ -89,13 +89,13 @@ slug.load('scavandscug.gif')
 slug.place(x= 0, y=0)
 
 
-button1Clicked  = False
-button2Clicked  = False
+#button1Clicked  = False
+#button2Clicked  = False
 
-def option1(buttonClicked):
-  print( "hellooooo ")
-  print(buttonClicked)
-  buttonClicked = not buttonClicked 
+#def option1(buttonClicked):
+#  print( "")
+#  print(buttonClicked)
+#  buttonClicked = not buttonClicked 
 #  button1["state"] = DISABLED
 #  button2["state"] = DISABLED
     
@@ -106,45 +106,45 @@ def option1(buttonClicked):
 #  button1["state"] = DISABLED
 
 
-button1 = tk.Button(app, 
-                   text="", 
-                   command=option1(button1Clicked),
-                   activebackground="#49365a", 
-                   activeforeground="#d1cdf0",
-                   bd=0,
-                   bg="#332441",
-                   cursor="hand2",
-                   disabledforeground="#484659",
-                   fg="#d1cdf0",
-                   font=("Arial", 12, 'bold'),
-                   height=2,
-                   highlightbackground="black",
-                   highlightcolor="green",
-                   padx=10,
-                   pady=5,
-                   width=15)
-button1.pack(padx=20, pady=20)
-button1.place(x=200, y=635)
+#button1 = tk.Button(app, 
+#                   text="", 
+#                   command=option1(button1Clicked),
+#                   activebackground="#49365a", 
+#                   activeforeground="#d1cdf0",
+#                   bd=0,
+#                   bg="#332441",
+#                   cursor="hand2",
+#                   disabledforeground="#484659",
+#                   fg="#d1cdf0",
+#                   font=("Arial", 12, 'bold'),
+#                   height=2,
+#                   highlightbackground="black",
+#                   highlightcolor="green",
+#                   padx=10,
+#                   pady=5,
+#                   width=15)
+#button1.pack(padx=20, pady=20)
+#button1.place(x=200, y=635)
 
 
-button2 = tk.Button(app, 
-                   text="", 
-                   command=option1(button2Clicked),
-                   activebackground="#49365a", 
-                   activeforeground="#d1cdf0",
-                   bd=0,
-                   bg="#332441",
-                   cursor="hand2",
-                   disabledforeground="#484659",
-                   fg="#d1cdf0",
-                   font=("Arial", 12, 'bold'),
-                   height=2,
-                   highlightbackground="black",
-                   highlightcolor="green",
-                   padx=10,
-                   pady=5,
-                   width=15)
-button2.pack(padx=20, pady=20)
-button2.place(x=600, y=635)
+#button2 = tk.Button(app, 
+#                   text="", 
+#                   command=option1(button2Clicked),
+#                   activebackground="#49365a", 
+#                   activeforeground="#d1cdf0",
+#                   bd=0,
+#                   bg="#332441",
+#                   cursor="hand2",
+#                   disabledforeground="#484659",
+#                   fg="#d1cdf0",
+#                   font=("Arial", 12, 'bold'),
+#                   height=2,
+#                   highlightbackground="black",
+#                   highlightcolor="green",
+#                   padx=10,
+#                   pady=5,
+#                   width=15)
+#button2.pack(padx=20, pady=20)
+#button2.place(x=600, y=635)
 
 
