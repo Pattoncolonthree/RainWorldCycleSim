@@ -11,7 +11,7 @@ from test3gui import *
 from test4gifs import *
 from defs import *
 def spearchance():
-    return random.randint(1,1)
+    return random.randint(2,2)
 
 if spearchance() == 1:
     has_spear = True
@@ -56,6 +56,10 @@ scavkill.place(x= 0, y=0)
 rahh = ImageLabel(app, borderwidth = 0)
 rahh.pack(padx=10, pady=10)
 rahh.place(x= 0, y=0)
+
+scugrun = ImageLabel(app, borderwidth = 0)
+scugrun.pack(padx=10, pady=10)
+scugrun.place(x= 0, y=0)
 
 def attackchance():
     return random.randint(1,2)
@@ -201,9 +205,15 @@ def scavgui():
         text = ("you think of your options. Try to run past? maybe crouch to show you aren't a threat")
         action = input("What do you do? ").lower()
         if action == "run" or action == "run past":
-            print("hi")
+            text = ("You just decide to sprint past the Scavenger...")
+            printString(text)
+            scugrun.load("scugrun.gif")
+            text = ("........")
+            printString(text)
+            text = ("how did you know that would work???")
+            printString(text)
         elif action == "crouch" or action == "crouch down":
-            print("hello")
+            print("hi")
         else:
             print("gulp")
 
