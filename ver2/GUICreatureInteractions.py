@@ -203,6 +203,7 @@ def scavgui():
         text = ("You look warily at the Scavenger, seeing it's armed with a spear")
         printString(text)
         text = ("you think of your options. Try to run past? maybe crouch to show you aren't a threat")
+        printString(text)
         action = input("What do you do? ").lower()
         if action == "run" or action == "run past":
             text = ("You just decide to sprint past the Scavenger...")
@@ -213,7 +214,8 @@ def scavgui():
             text = ("how did you know that would work???")
             printString(text)
         elif action == "crouch" or action == "crouch down":
-            print("hi")
+            text = ("You crouch down in front of the scavenger")
+            printString(text)
         else:
             print("gulp")
 
