@@ -57,7 +57,7 @@ class ImageLabel(tk.Label):
             self.config(image=self.frames[self.loc])
             self.after(self.delay, self.next_frame)
 
-length = "w"
+length = "wwwwwwwwwwwwwwwwwwwww"
 
 #wwwwwwwwwwwwwwwwwwwww
 def sleepy():
