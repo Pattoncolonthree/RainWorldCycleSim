@@ -1,22 +1,12 @@
 #imports and set ups
-
-has_rock = False
-
 import time
 import random
 import sys
 import winsound
 import threading
-from test3gui import *
-from test4gifs import *
 from defs import *
-def spearchance():
-    return random.randint(2,2)
 
-if spearchance() == 1:
-    has_spear = True
-else:
-    has_spear = False
+callalldefs()
 
 if has_spear == False:
     scavscug = ImageLabel(app, borderwidth = 0)
@@ -54,29 +44,19 @@ scavkill.pack(padx=10, pady=10)
 scavkill.place(x= 0, y=0)
 
 rahh = ImageLabel(app, borderwidth = 0)
-rahh.pack(padx=10, pady=10)
+rahh.pack(padx=10, pady=10)                 
 rahh.place(x= 0, y=0)
 
-scugrun = ImageLabel(app, borderwidth = 0)
-scugrun.pack(padx=10, pady=10)
-scugrun.place(x= 0, y=0)
+scugruncrouch = ImageLabel(app, borderwidth = 0)
+scugruncrouch.pack(padx=10, pady=10)
+scugruncrouch.place(x= 0, y=0)
 
-def attackchance():
-    return random.randint(1,2)
+crouch = ImageLabel(app, borderwidth = 0)
+crouch.pack(padx=10, pady=10)
+crouch.place(x= 0, y=0)
 
-def reputation(aggression):
-    if has_spear == True:
-        aggression += 2
-    if has_rock == True:
-        aggression += 1
-    return aggression
-#adding the reputation system base, in the code extra things will make the aggression go up.
-
-def reputationrng():
-    return random.randint(reputation(aggression), reputation(aggression) + 5)
-    #will check this !!!!!!! dunno if it works
-#code is to make a random number based on the level of aggression from the scavenger
-# The code will be used for when the aggression is higher, the chance of the scavenger attacking is higher.
+#Code in order to set up the gifs to work later
+#would like to find out how to make the gif change, instead of making a new one each time.
 
 def scavgui():
     winsound.PlaySound('threat.wav', winsound.SND_ASYNC)
@@ -168,6 +148,7 @@ def scavgui():
             text = ("The scavenger blinks at you, lowering it's own spear")
             printString(text)
             text = ("you look at one another for a second before the scavenger runs off")
+            print('next room')
         else:
             text = ("you didnt know what to do\njust standing there like an idiot")
             printString(text)
@@ -182,6 +163,7 @@ def scavgui():
                 printString(text)
                 text = ("The Scavenger sprints in to the tunnel next to it")
                 printString(text)
+                print('next room')
             else:
                 text = ("...")
                 printString(text)
@@ -208,27 +190,52 @@ def scavgui():
         if action == "run" or action == "run past":
             text = ("You just decide to sprint past the Scavenger...")
             printString(text)
-            scugrun.load("scugrun.gif")
+            scugruncrouch.load("scugrun.gif")
             text = ("........")
             printString(text)
-            text = ("how did you know that would work???")
-            printString(text)
-        elif action == "crouch" or action == "crouch down":
-            text = ("You crouch down in front of the scavenger")
-            printString(text)
-        else:
-            print("gulp")
+            print('next room')
 
 
     
 
+        elif action == "crouch" or action == "crouch down":
+            text = ("You crouch down in front of the scavenger")
+            printString(text)
+            scugruncrouch.load("crouch.gif")
+            sleepy()
+            sleepy()
+            crouch.load("crouching.gif")
+        
 
-
-
-
-
-
-
+        else:
+            text = ("you didnt know what to do\njust standing there like an idiot")
+            printString(text)
+            text = ("The scavenger raises it's spear at you nervously")
+            if attackchance() > 2:
+                text = ("...")
+                printString(text)
+                scavmiss.load('scavmiss.gif')
+                text = ("The spear clanks to the ground next to you")
+                printString(text)
+                text = ("O_O'")
+                printString(text)
+                text = ("The Scavenger sprints in to the tunnel next to it")
+                printString(text)
+                print('next room')
+            else:
+                text = ("...")
+                printString(text)
+                scavmiss.load('scavhit.gif')
+                text = ("The spear stabs right through your chest.")
+                printString(text)
+                text = ("The last thing you see before your vision goes black \n is the Scavenger running off")
+                printString(text)
+                rahh.load('black.gif')
+                text = ("YOU DIED")
+                printString(text)
+                winsound.PlaySound('death.wav', winsound.SND_FILENAME)
+                time.sleep(5)
+                quit
 
 
 print(scavgui())
