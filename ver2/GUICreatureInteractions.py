@@ -75,7 +75,7 @@ def scavgui():
         printString(text)
     #if, elif, else statements depending on the players reputation with the scavenger and changing the starting statement.
     if has_spear == True or has_rock == True:
-        text = (f"You look warily at the Scavenger, raising your own Spear defensively")
+        text = (f"You look warily at the Scavenger,\nraising your own Spear defensively")
         printString(text)
         text = (f"You think of your options. Throw the Spear at it?\nDrop the weapon for peace??")
         printString(text)
@@ -90,18 +90,18 @@ def scavgui():
         #print("helllllllo true")
         action = input("What do you do? ").lower()
         if action == "throw" or action == "throw spear" or action == "attack":
-            if attackchance() <= 2:
+            if attackchance() < 2:
                 if reputationrng() <= 0:
                     scavdodgerun.load('scavdodgerun.gif')
-                    text = ("The scavenger jumps out of the way, scrambling to it's feet and staring at you")
+                    text = ("The scavenger jumps out of the way,\nscrambling to it's feet and staring at you")
                     printString(text)
-                    text = ("Without another thought the scavenger dives towards a tunnel, squeezing through and running away")
+                    text = ("Without another thought the scavenger\ntowards a tunnel, squeezing through and running away")
                     printString(text)
                     scavscugsp.load('scug.gif')
                     runaway = True
                 elif reputationrng() > 0:
                     spike.load('spikeup.gif')
-                    text = ("The scavenger jumps out of the way, scrambling to it's feet and staring at you")
+                    text = ("The scavenger jumps out of the way,\nscrambling to it's feet and staring at you")
                     printString(text)
                     spiked.load('spikedup.gif')
                     spike.configure(image=None)
@@ -123,7 +123,7 @@ def scavgui():
                         scavmiss.load('scavhit.gif')
                         text = ("The spear stabs right through your chest.")
                         printString(text)
-                        text = ("The last thing you see before your vision goes black \n is the Scavenger running off")
+                        text = ("The last thing you see before your vision goes black\nis the Scavenger running off")
                         printString(text)
                         rahh.load('black.gif')
                         text = ("YOU DIED")
@@ -138,16 +138,17 @@ def scavgui():
             else:
                 text = ("The spear peirces the Scavengers chest")
                 printString(text)
-                text = ("The creature doesn't even get a chance to react before it has already collapsed")
+                text = ("The creature doesn't even get a chance to\nreact before it has already collapsed")
                 printString(text)
+                print('next room')
         #elif button2Clicked == True:
         elif action == "drop" or action == "drop spear" or action == "peace":
             text = ("You slowly toss the spear away from yourself")
             printString(text)
             rahh.load('scavandscug')
-            text = ("The scavenger blinks at you, lowering it's own spear")
+            text = ("The scavenger blinks at you,\nlowering it's own spear")
             printString(text)
-            text = ("you look at one another for a second before the scavenger runs off")
+            text = ("you look at one another for a second\nbefore the scavenger runs off")
             print('next room')
         else:
             text = ("you didnt know what to do\njust standing there like an idiot")
@@ -170,7 +171,7 @@ def scavgui():
                 scavmiss.load('scavhit.gif')
                 text = ("The spear stabs right through your chest.")
                 printString(text)
-                text = ("The last thing you see before your vision goes black \n is the Scavenger running off")
+                text = ("The last thing you see before your vision goes black\nis the Scavenger running off")
                 printString(text)
                 rahh.load('black.gif')
                 text = ("YOU DIED")
@@ -205,7 +206,7 @@ def scavgui():
             sleepy()
             sleepy()
             crouch.load("crouching.gif")
-        
+        #slugcat crouches viual
 
         else:
             text = ("you didnt know what to do\njust standing there like an idiot")
