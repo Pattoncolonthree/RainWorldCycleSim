@@ -206,6 +206,8 @@ def scavgui():
             sleepy()
             sleepy()
             crouch.load("crouching.gif")
+            text = ("The scavenger looks at you for a moment, it")
+
         #slugcat crouches viual
 
         else:
@@ -239,7 +241,6 @@ def scavgui():
                 quit
 
 
-print(scavgui())
-
+scavgui()
 
 app.mainloop()
