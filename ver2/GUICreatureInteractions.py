@@ -90,7 +90,7 @@ def scavgui():
         #print("helllllllo true")
         action = input("What do you do? ").lower()
         if action == "throw" or action == "throw spear" or action == "attack":
-            if attackchance() < 2:
+            if attackchance() <= 2:
                 if reputationrng() <= 0:
                     scavdodgerun.load('scavdodgerun.gif')
                     text = ("The scavenger jumps out of the way,\nscrambling to it's feet and staring at you")
