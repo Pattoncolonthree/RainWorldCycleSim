@@ -7,7 +7,8 @@ import threading
 #imports
 
 aggression = 1
-
+has_spear = True
+has_rock = True
 seconds = time.time()
 local_time = time.ctime(seconds)
 creature = "rainworl"
@@ -54,7 +55,6 @@ def reputation(aggression):
         aggression += 2
     if has_rock == True:
         aggression += 1
-
     return aggression
 #adding the reputation system base, in the code extra things will make the aggression go up.
 

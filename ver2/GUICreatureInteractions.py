@@ -43,10 +43,6 @@ scavkill = ImageLabel(app, borderwidth = 0)
 scavkill.pack(padx=10, pady=10)
 scavkill.place(x= 0, y=0)
 
-rahh = ImageLabel(app, borderwidth = 0)
-rahh.pack(padx=10, pady=10)                 
-rahh.place(x= 0, y=0)
-
 scugruncrouch = ImageLabel(app, borderwidth = 0)
 scugruncrouch.pack(padx=10, pady=10)
 scugruncrouch.place(x= 0, y=0)
@@ -54,6 +50,24 @@ scugruncrouch.place(x= 0, y=0)
 crouch = ImageLabel(app, borderwidth = 0)
 crouch.pack(padx=10, pady=10)
 crouch.place(x= 0, y=0)
+
+scavkilled = ImageLabel(app, borderwidth = 0)
+scavkilled.pack(padx=10, pady=10)
+scavkilled.place(x= 0, y=0)
+
+cscavkill = ImageLabel(app, borderwidth = 0)
+cscavkill.pack(padx=10, pady=10)
+cscavkill.place(x= 0, y=0)
+
+cscavrun = ImageLabel(app, borderwidth = 0)
+cscavrun.pack(padx=10, pady=10)
+cscavrun.place(x= 0, y=0)
+
+
+rahh = ImageLabel(app, borderwidth = 0)
+rahh.pack(padx=10, pady=10)                 
+rahh.place(x= 0, y=0)
+
 
 #Code in order to set up the gifs to work later
 #would like to find out how to make the gif change, instead of making a new one each time.
@@ -90,8 +104,10 @@ def scavgui():
         #print("helllllllo true")
         action = input("What do you do? ").lower()
         if action == "throw" or action == "throw spear" or action == "attack":
-            if attackchance() <= 2:
-                if reputationrng() <= 0:
+            if attackchance() >= 2:
+                #scug misses
+                if reputationrng() < 0:
+                    #scav run
                     scavdodgerun.load('scavdodgerun.gif')
                     text = ("The scavenger jumps out of the way, scrambling to it's feet and staring at you")
                     printString(text)
@@ -100,6 +116,7 @@ def scavgui():
                     scavscugsp.load('scug.gif')
                     runaway = True
                 elif reputationrng() > 0:
+                    #scag angry
                     spike.load('spikeup.gif')
                     text = ("The scavenger jumps out of the way, scrambling to it's feet and staring at you")
                     printString(text)
@@ -107,17 +124,20 @@ def scavgui():
                     spike.configure(image=None)
                     text = ("It raises it's spear to you")
                     printString(text)
-                    if attackchance() > 2:
+                    if attackchance() >= 2:
+                        #scav misses
                         text = ("...")
                         printString(text)
                         scavmiss.load('scavmiss.gif')
                         text = ("The spear clanks to the ground next to you")
                         printString(text)
                         text = ("O_O'")
+                        scug.load('scug.gif')
                         printString(text)
                         text = ("The Scavenger sprints in to the tunnel next to it")
                         printString(text)
                     else:
+                        #scav hits
                         text = ("...")
                         printString(text)
                         scavmiss.load('scavhit.gif')
@@ -129,7 +149,7 @@ def scavgui():
                         text = ("YOU DIED")
                         printString(text)
                         winsound.PlaySound('death.wav', winsound.SND_FILENAME)
-                        time.sleep(5)
+                        time.sleep(3)
                         quit
                 else:
                     text = ("what,,,,,")
@@ -138,17 +158,19 @@ def scavgui():
             else:
                 text = ("The spear peirces the Scavengers chest")
                 printString(text)
-                text = ("The creature doesn't even get a chance to react before it has already collapsed")
+                scavkilled.load('scavstabbed.gif')
+                text = ("The creature doesn't even get a chance to react")
                 printString(text)
+                print("next room")
         #elif button2Clicked == True:
         elif action == "drop" or action == "drop spear" or action == "peace":
             text = ("You slowly toss the spear away from yourself")
             printString(text)
-            rahh.load('scavandscug')
+            rahh.load('scavandscug.gif')
             text = ("The scavenger blinks at you, lowering it's own spear")
             printString(text)
             text = ("you look at one another for a second before the scavenger runs off")
-            print('next room')
+            #next room
         else:
             text = ("you didnt know what to do\njust standing there like an idiot")
             printString(text)
@@ -193,7 +215,7 @@ def scavgui():
             scugruncrouch.load("scugrun.gif")
             text = ("........")
             printString(text)
-            print('next room')
+            #next room
 
 
     
@@ -205,7 +227,36 @@ def scavgui():
             sleepy()
             sleepy()
             crouch.load("crouching.gif")
-        
+            if reputation(aggression) <= 1:
+                text = ("The scavenger blinks at you, it looks quite curious")
+                printString(text)
+                cscavrun.load('crouchscavrun.gif')
+                text = ("it turns away and runs off")
+                printString(text)
+                #next room
+            elif reputation(aggression) > 1 and reputation(aggression) <= 3:
+                text = ("The scavenger looks at you nervously")
+                printString(text)
+                cscavrun.load('crouchscavrun.gif')
+                text = ("it turns away and runs off")
+                printString(text)
+                #next room
+            else:
+                text = ("the scavenger raises it's spear, not at all phased by your gesture.")
+                printString(text)
+                cscavkill.load('crouchscavhit.gif')
+                text = ("The spear stabs right through your chest.")
+                printString(text)
+                rahh.load('black.gif')
+                text = ("YOU DIED")
+                printString(text)
+                winsound.PlaySound('death.wav', winsound.SND_FILENAME)
+                time.sleep(3)
+                quit
+
+                
+
+
 
         else:
             text = ("you didnt know what to do\njust standing there like an idiot")
@@ -234,7 +285,7 @@ def scavgui():
                 text = ("YOU DIED")
                 printString(text)
                 winsound.PlaySound('death.wav', winsound.SND_FILENAME)
-                time.sleep(5)
+                time.sleep(3)
                 quit
 
 

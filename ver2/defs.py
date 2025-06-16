@@ -89,7 +89,8 @@ def sleepy():
     for char in length:
         time.sleep(0.05)
         Label.update()
-
+#this function is because while using gifs if i am to use the time.sleep for long periods of time, the gifs wont update their frames at all during that time
+#so this just makes it so that i can update the gifs(so they dont just suddenly stop) while also having a pause for other parts of the code ^_^
 
 def printString(string):
     for char in string:
@@ -123,7 +124,8 @@ def check():
     time.sleep(10)
     if answer != None:
         return
-        printString(f"you panic not responding in time as {creature} {attack}\n")
+        text:(f"you panic not responding in time as The Lizard sinks it's teeth into you")
+        printString(text)
         quit()
 
 
@@ -132,6 +134,7 @@ def reputation(aggression):
         aggression += 2
     if has_rock == True:
         aggression += 1
+    aggression -= 10
     return aggression
 #adding the reputation system base, in the main code extra things will make the aggression go up.
 
