@@ -93,15 +93,7 @@ def scavgui():
         printString(text)
         text = (f"You think of your options. Throw the Spear at it?\nDrop the weapon for peace??")
         printString(text)
-        #button2["state"] = NORMAL
-        #button1["state"] = NORMAL
-        #button1.config(text="Throw spear")
-        #button2.config(text="drop spear")
-        #while not button1Clicked and not button2Clicked:
-        #    sleepy()
-        #    print(button1Clicked)
-        #if  button1Clicked == True:
-        #print("helllllllo true")
+
         action = input("What do you do? ").lower()
         if action == "throw" or action == "throw spear" or action == "attack":
             if attackchance() >= 2:
