@@ -11,7 +11,7 @@ from PIL import Image, ImageTk
 from itertools import count
 import winsound
 #imports
-
+#defining global variables 
 has_spear = True
 has_rock = False
 aggression = 1
@@ -23,6 +23,7 @@ answer = None
 weapon = "placeholder"
 runaway = False
 
+#Temporary code
 def spearchance():
     return random.randint(1,2)
 
@@ -30,6 +31,7 @@ if spearchance() == 1:
     has_spear = True
 else:
     has_spear = False
+#
 
 class App(tk.Tk):
    def __init__(self):
@@ -134,7 +136,7 @@ def reputation(aggression):
         aggression += 2
     if has_rock == True:
         aggression += 1
-    aggression -= 10
+    
     return aggression
 #adding the reputation system base, in the main code extra things will make the aggression go up.
 

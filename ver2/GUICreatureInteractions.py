@@ -144,6 +144,7 @@ def scavgui():
                         time.sleep(3)
                         quit
                 else:
+                    
                     text = ("what,,,,,")
                     printString(text)
                     exit()
@@ -192,6 +193,7 @@ def scavgui():
                 winsound.PlaySound('death.wav', winsound.SND_FILENAME)
                 time.sleep(5)
                 quit
+                
 
 
 
