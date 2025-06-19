@@ -4,12 +4,18 @@ import random
 import sys
 import winsound
 import threading
-from defs import *
+import defs as d
 
-call_all_defs()
+d.call_all_defs()
 
 
 ImageLabel(bg="#180821")
+"""
+
+
+
+
+"""
 if has_spear is False:
     scav_scug=ImageLabel(app, borderwidth=0)
     scav_scug.pack(padx=10, pady=10)
@@ -87,12 +93,11 @@ def scav_gui():
         -Triggers different outcomes based on random chance(RNG) and predefined conditions.
 
     secondary effects:
-        -Modifies the global Variables such as 'runaway' --and 'has_spear'--======= based on user actions and encounter outcomes.
-        ---Modifies the Reputation Function by adding to the 'aggression' Variable.--========
+        -Modifies the global Variables such as 'runaway' and 'has_spear' based on user actions and encounter outcomes.
+        -Modifies the Reputation Function by adding to the 'aggression' Variable.
 
     Notes:
         -The encounter is largely influenced by the users actions aswell as their previously established 'reputation'.
-
         -The way the user acted during this encounter will affect their future interactions with any other scavenger.
     """
     winsound.PlaySound('threat.wav', winsound.SND_ASYNC)
@@ -119,8 +124,8 @@ def scav_gui():
         print_string(text)
         action = input("What do you do? ").lower()
         if action == "throw" or action == "throw spear" or action == "attack":
-            #aggression += 3
-            #has_spear = False
+            aggression += 3
+            has_spear = False
             if attack_chance() >= 2:
                 # scug misses
                 if reputation_rng() < 0:
