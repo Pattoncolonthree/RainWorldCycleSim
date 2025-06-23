@@ -17,7 +17,7 @@ d.ImageLabel(bg="#180821")
 
 
 """
-if d.has_spear is False:
+if  has_spear is False:
     scav_scug=d.ImageLabel(d.app, borderwidth=0)
     scav_scug.pack(padx=10, pady=10)
     scav_scug.load('scavandscug.gif')
@@ -313,7 +313,4 @@ def scav_gui():
                 d.app.destroy()
                 quit
 
-print(scav_gui())
 
-
-app.mainloop()
