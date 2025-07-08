@@ -17,7 +17,7 @@ d.ImageLabel(bg="#180821")
 
 
 """
-if  d.has_spear is False:
+if  has_spear is False:
     scav_scug=d.ImageLabel(d.app, borderwidth=0)
     scav_scug.pack(padx=10, pady=10)
     scav_scug.load('scavandscug.gif')
@@ -119,7 +119,7 @@ def scav_gui():
         d.print_string(text)
     # if, elif, else statements depending on the players reputation with the scavenger and changing the starting statement.
     if d.has_spear is True:
-        text = ("You look warily at the Scavenger, raising your\nown Spear defensively")
+        text = ("You look warily at the Scavenger, raising your own Spear defensively")
         d.print_string(text)
         text = ("You think of your options. Throw the Spear at it?\nDrop the weapon for peace??")
         d.print_string(text)
@@ -132,16 +132,16 @@ def scav_gui():
                 if d.reputation_rng() < 0:
                     # scav run
                     scav_dodge_run.load('scav_dodge_run.gif')
-                    text = ("The scavenger jumps out of the way, scrambling to it's feet\nand staring at you")
+                    text = ("The scavenger jumps out of the way, scrambling to it's feet and staring at you")
                     d.print_string(text)
-                    text = ("Without another thought the scavenger dives towards a tunnel,\nsqueezing through and running away")
+                    text = ("Without another thought the scavenger dives towards a tunnel, squeezing through and running away")
                     d.print_string(text)
                     scav_scugsp.load('scug.gif')
                     runaway = True
                 elif d.reputation_rng() > 0:
                     # scav angry
                     spike.load('spikeup.gif')
-                    text = ("The scavenger jumps out of the way, scrambling to it's feet\nand staring at you")
+                    text = ("The scavenger jumps out of the way, scrambling to it's feet and staring at you")
                     d.print_string(text)
                     spiked.load('spikedup.gif')
                     spike.configure(image=None)
@@ -151,7 +151,7 @@ def scav_gui():
                         # scav misses
                         text = ("...")
                         d.print_string(text)
-                        scav_miss.load('scavmiss.gif')
+                        scav_miss.load('scav_miss.gif')
                         text = ("The spear clanks to the ground next to you")
                         d.print_string(text)
                         text = ("O_O'")
@@ -166,7 +166,7 @@ def scav_gui():
                         scav_miss.load('scavhit.gif')
                         text = ("The spear stabs right through your chest.")
                         d.print_string(text)
-                        text = ("The last thing you see before your vision goes black\nis the Scavenger running off")
+                        text = ("The last thing you see before your vision goes black \n is the Scavenger running off")
                         d.print_string(text)
                         end_screen.load('black.gif')
                         text = ("YOU DIED")
@@ -202,7 +202,7 @@ def scav_gui():
             text = ("you didnt know what to do\njust standing there like an idiot")
             d.print_string(text)
             text = ("The scavenger raises it's spear at you nervously")
-            if d.attack_chance() >= 2:
+            if d.attack_chance() > 2:
                 text = ("...")
                 d.print_string(text)
                 scav_miss.load('scav_miss.gif')
@@ -232,7 +232,7 @@ def scav_gui():
     else:
         text = ("You look warily at the Scavenger, seeing it's armed with a spear")
         d.print_string(text)
-        text = ("you think of your options. Try to run past?\nmaybe crouch to show you aren't a threat")
+        text = ("you think of your options. Try to run past? maybe crouch to show you aren't a threat")
         d.print_string(text)
         action = input("What do you do? ").lower()
         if action == "run" or action == "run past":
@@ -285,7 +285,7 @@ def scav_gui():
             text = ("you didnt know what to do\njust standing there like an idiot")
             d.print_string(text)
             text = ("The scavenger raises it's spear at you nervously")
-            if d.attack_chance() >= 2:
+            if d.attack_chance() > 2:
                 text = ("...")
                 d.print_string(text)
                 scav_miss.load('scav_miss.gif')

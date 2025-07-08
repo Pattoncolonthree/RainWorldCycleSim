@@ -13,8 +13,8 @@ from itertools import count
 
 # imports
 # Initialising global variables
-has_spear = False
-has_rock = False
+# has_spear = False
+# has_rock = False
 aggression = 1
 seconds = time.time()
 local_time = time.ctime(seconds)
@@ -106,15 +106,15 @@ def sleepy():
 
 
 # Temporary code
-def spear_chance():
-    """this code will randomise with either 1 or 2 and return the output.
-    """
-    return random.randint(1,2)
+# def spear_chance():
+#     """this code will randomise with either 1 or 2 and return the output.
+#     """
+#     return random.randint(1,2)
 
-if spear_chance() == 1:
-    has_spear = True
-else:
-    has_spear = False
+# if spear_chance() == 1:
+#     has_spear = True
+# else:
+#     has_spear = False
 
 
 def print_string(string):
