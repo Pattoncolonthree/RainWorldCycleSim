@@ -13,8 +13,8 @@ from itertools import count
 
 # imports
 # Initialising global variables
-# has_spear = False
-# has_rock = False
+has_spear = False
+has_rock = False
 aggression = 1
 seconds = time.time()
 local_time = time.ctime(seconds)

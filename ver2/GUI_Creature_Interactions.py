@@ -17,7 +17,7 @@ d.ImageLabel(bg="#180821")
 
 
 """
-if  has_spear is False:
+if  d.has_spear is False:
     scav_scug=d.ImageLabel(d.app, borderwidth=0)
     scav_scug.pack(padx=10, pady=10)
     scav_scug.load('scavandscug.gif')
@@ -106,7 +106,11 @@ def scav_gui():
     # playing any other sound cancels this but i am gonna attempt to fix this :3
     # I HAVE PERMISSION FROM RIVOTTER AND JAMES THERRIAN(James Primate)
     # TO USE BOTH THE MUSIC AND AUDIO FROM THE GAME: Rain World by Video Cult
+    text = ("")
+    d.print_string(text)
     text = ("You look towards the creature in front of you, it looks back at you.\n It's quills spike up.")
+    d.print_string(text)
+    text = ("(When prompted with an option, use your terminal to make a descision)")
     d.print_string(text)
     if d.reputation(d.aggression) <= 1:
         text = ("The Scavenger looks at you warily, clutching it's spear to\nit's chest protectively  ")
