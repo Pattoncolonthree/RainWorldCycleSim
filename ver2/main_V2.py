@@ -1,4 +1,3 @@
-
 import tkinter as tk
 from tkinter import *
 import time
@@ -8,9 +7,11 @@ from itertools import count
 import winsound
 import GUI_Creature_Interactions as ci
 
+"""
 
+"""
 
 
 ci.scav_gui()
 
-app.mainloop()
+ci.app.mainloop()

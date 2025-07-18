@@ -11,11 +11,7 @@ d.call_all_defs()
 
 
 d.ImageLabel(bg="#180821")
-"""
-
-
-
-
+"""Creates the gifs that will be used later on in the code.
 """
 if  d.has_spear is False:
     scav_scug=d.ImageLabel(d.app, borderwidth=0)
@@ -111,6 +107,7 @@ def scav_gui():
     text = ("You look towards the creature in front of you, it looks back at you.\n It's quills spike up.")
     d.print_string(text)
     text = ("(When prompted with an option, use your terminal to make a descision)")
+    # make sure user knows to use terminal
     d.print_string(text)
     if d.reputation(d.aggression) <= 1:
         text = ("The Scavenger looks at you warily, clutching it's spear to\nit's chest protectively  ")
@@ -123,6 +120,8 @@ def scav_gui():
         d.print_string(text)
     # if, elif, else statements depending on the players reputation with the scavenger and changing the starting statement.
     if d.has_spear is True:
+        # if scug does have spear
+        # has_spear = True
         text = ("You look warily at the Scavenger, raising your own Spear defensively")
         d.print_string(text)
         text = ("You think of your options. Throw the Spear at it?\nDrop the weapon for peace??")
@@ -178,20 +177,24 @@ def scav_gui():
                         winsound.PlaySound('death.wav', winsound.SND_FILENAME)
                         d.sleepy()
                         d.app.destroy()
-                        quit
+                        exit()
                 else:
+                    # just in case someone breaks program, somehow??
                     text = ("what,,,,,")
                     d.print_string(text)
+                    d.app.destroy()
                     exit()
             else:
+                # scug kill scav
                 text = ("The spear peirces the Scavengers chest")
                 d.print_string(text)
                 scav_killed.load('scavstabbed.gif')
                 text = ("The creature doesn't even get a chance to react")
                 d.print_string(text)
                 d.app.destroy()
-                quit
+                exit()
         elif action == "drop" or action == "drop spear" or action == "peace":
+            # scug chooses to drop spear
             d.has_spear = False
             d.aggression -= 2
             text = ("You slowly toss the spear away from yourself")
@@ -201,12 +204,14 @@ def scav_gui():
             d.print_string(text)
             text = ("you look at one another for a second before the scavenger runs off")
             d.app.destroy()
-            quit
+            exit()
         else:
+            # if player responds something not intended.
             text = ("you didnt know what to do\njust standing there like an idiot")
             d.print_string(text)
             text = ("The scavenger raises it's spear at you nervously")
             if d.attack_chance() > 2:
+                # scav attack misses
                 text = ("...")
                 d.print_string(text)
                 scav_miss.load('scav_miss.gif')
@@ -216,8 +221,10 @@ def scav_gui():
                 d.print_string(text)
                 text = ("The Scavenger sprints in to the tunnel next to it")
                 d.print_string(text)
-                print('next room')
+                d.app.destroy()
+                exit()
             else:
+                # scav attack hits
                 text = ("...")
                 d.print_string(text)
                 scav_miss.load('scavhit.gif')
@@ -231,15 +238,18 @@ def scav_gui():
                 winsound.PlaySound('death.wav', winsound.SND_FILENAME)
                 d.sleepy()
                 d.app.destroy()
-                quit
+                exit()
 
     else:
+        # if scug does not have spear
+        # has_spear = False
         text = ("You look warily at the Scavenger, seeing it's armed with a spear")
         d.print_string(text)
         text = ("you think of your options. Try to run past? maybe crouch to show you aren't a threat")
         d.print_string(text)
         action = input("What do you do? ").lower()
         if action == "run" or action == "run past":
+            # player chooses to run
             d.aggression += 1
             text = ("You just decide to sprint past the Scavenger...")
             d.print_string(text)
@@ -247,8 +257,9 @@ def scav_gui():
             text = ("........")
             d.print_string(text)
             d.app.destroy()
-            quit
+            exit()
         elif action == "crouch" or action == "crouch down":
+            # player chooses to crouch
             d.aggression -= 2
             text = ("You crouch down in front of the scavenger")
             d.print_string(text)
@@ -257,23 +268,26 @@ def scav_gui():
             d.sleepy()
             crouch.load("crouching.gif")
             if d.reputation(d.aggression) <= 1:
+                # scavenger best reputation
                 text = ("The scavenger blinks at you, it looks quite curious")
                 d.print_string(text)
                 c_scav_run.load('crouchscavrun.gif')
                 text = ("it turns away and runs off")
                 d.print_string(text)
                 d.app.destroy()
-                quit
+                exit()
             elif d.reputation(d.aggression) > 1 and d.reputation(d.aggression) <= 3:
+                # scavenger neutral reputation
                 text = ("The scavenger looks at you nervously")
                 d.print_string(text)
                 c_scav_run.load('crouchscavrun.gif')
                 text = ("it turns away and runs off")
                 d.print_string(text)
                 d.app.destroy()
-                quit
+                exit()
             else:
                 text = ("the scavenger raises it's spear, not at all phased by your gesture.")
+                # scavenger bad reputation
                 d.print_string(text)
                 cscav_kill.load('crouchscavhit.gif')
                 text = ("The spear stabs right through your chest.")
@@ -284,12 +298,14 @@ def scav_gui():
                 winsound.PlaySound('death.wav', winsound.SND_FILENAME)
                 d.sleepy()
                 d.app.destroy()
-                quit
+                exit()
         else:
+            # if player responds something not intended.
             text = ("you didnt know what to do\njust standing there like an idiot")
             d.print_string(text)
             text = ("The scavenger raises it's spear at you nervously")
             if d.attack_chance() > 2:
+                # scav attack misses
                 text = ("...")
                 d.print_string(text)
                 scav_miss.load('scav_miss.gif')
@@ -300,8 +316,9 @@ def scav_gui():
                 text = ("The Scavenger sprints in to the tunnel next to it")
                 d.print_string(text)
                 d.app.destroy()
-                quit
+                exit()
             else:
+                # scav attack hits
                 text = ("...")
                 d.print_string(text)
                 scav_miss.load('scavhit.gif')
@@ -315,6 +332,6 @@ def scav_gui():
                 winsound.PlaySound('death.wav', winsound.SND_FILENAME)
                 d.sleepy()
                 d.app.destroy()
-                quit
+                exit()
 
 

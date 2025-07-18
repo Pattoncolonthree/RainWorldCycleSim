@@ -25,8 +25,7 @@ weapon = "placeholder"
 runaway = False
 
 class App(tk.Tk):
-    """
-   
+    """Creates the Gui.
     """
     def __init__(self):
        super().__init__()
@@ -106,20 +105,24 @@ def sleepy():
 
 
 # Temporary code
-# def spear_chance():
-#     """this code will randomise with either 1 or 2 and return the output.
-#     """
-#     return random.randint(1,2)
+def spear_chance():
+    """this code will randomise with either 1 or 2 and return the output.
+    """
+    return random.randint(1,2)
 
-# if spear_chance() == 1:
-#     has_spear = True
-# else:
-#     has_spear = False
+if spear_chance() == 1:
+    has_spear = True
+else:
+    has_spear = False
 
 
 def print_string(string):
-    """
-    
+    """prints each letter in the string one by one, waits a couple seconds and then erases the text.
+
+    Delays each letter of the sentence to get a cleaner look
+    Whatever is in the delay_print brackets will be printed one at a time on the speed stated in the time.sleep.
+
+
     """
     for char in string:
         Label.configure(text=Label.cget('text') + char, font=('Arial', 18, 'bold'), fg="#d1cdf0", bg="#180821")
@@ -128,8 +131,7 @@ def print_string(string):
     sleepy()
     text = Label.configure(text= " ")
     Label.update
-# delays each letter of the sentence to get a cleaner look.
-# whatever is in the delay_print brackets will be printed one at a time on the speed stated in the time.sleep
+
 
 
 Label = tk.Label(app)
@@ -139,29 +141,29 @@ Label.place(x= 110, y= 575)
 
 
 def attack_chance():
-    """
-    
+    """Returns a random number between 1 and 2.
+
+    used for the chance of if the player or scavenger hits when they throw weapon
     """
     return random.randint(1,2)
-# seeing the chances of if the player hits when they throw weapon
+
 
 
 def check():
-    """
-    
-    """
+    """Checks if the user has replied in time, if not, plays a death message."""
     time.sleep(10)
     if answer != None:
         return
-        text:(f"you panic not responding in time as The Lizard sinks it's teeth into you")
+        text(f"you panic not responding in time as The Lizard sinks it's teeth into you")
         print_string(text)
         quit()
 # 18/06/2025 -Code above isnt used in what i have so far in my Program, but is set up for my future additions.
 
 
 def reputation(aggression):
-    """
+    """If the user has a spear or rock, the aggression will go up by a certain amount.
     
+    will be used to calculate the reputation_rng.
     """
     if has_spear is True:
         aggression += 2
@@ -172,17 +174,19 @@ def reputation(aggression):
 
 
 def reputation_rng():
-    """
-    
-    
+    """returns a random number based on what the level of aggression is and that number plus five.
+
+    will make random number based on the level of aggression from the scavenger
+
+    The code will be used for when the aggression is higher, the chance of the scavenger attacking is higher.
+
     """
     return random.randint(reputation(aggression), reputation(aggression) + 5)
 # will check this !!!!!!! dunno if it works
-# code is to make a random number based on the level of aggression from the scavenger
-# The code will be used for when the aggression is higher, the chance of the scavenger attacking is higher.
 
 
 def call_all_defs():
+    """calls all of the functions so that it's easier to get them in other files."""
     attack_chance()
     reputation(aggression)
     reputation_rng()
