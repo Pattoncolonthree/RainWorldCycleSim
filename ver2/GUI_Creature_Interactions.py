@@ -126,7 +126,7 @@ def scav_gui():
         d.print_string(text)
         text = ("You think of your options. Throw the Spear at it?\nDrop the weapon for peace??")
         d.print_string(text)
-        action = input("What do you do? ").lower()
+        action = input("What do you do? (throw or drop)").lower()
         if action == "throw" or action == "throw spear" or action == "attack":
             d.aggression += 3
             d.has_spear = False
@@ -247,7 +247,7 @@ def scav_gui():
         d.print_string(text)
         text = ("you think of your options. Try to run past? maybe crouch to show you aren't a threat")
         d.print_string(text)
-        action = input("What do you do? ").lower()
+        action = input("What do you do? (crouch or run)").lower()
         if action == "run" or action == "run past":
             # player chooses to run
             d.aggression += 1
