@@ -210,7 +210,7 @@ def scav_gui():
             text = ("you didnt know what to do\njust standing there like an idiot")
             d.print_string(text)
             text = ("The scavenger raises it's spear at you nervously")
-            if d.attack_chance() > 2:
+            if d.attack_chance() >= 2:
                 # scav attack misses
                 text = ("...")
                 d.print_string(text)
@@ -304,7 +304,7 @@ def scav_gui():
             text = ("you didnt know what to do\njust standing there like an idiot")
             d.print_string(text)
             text = ("The scavenger raises it's spear at you nervously")
-            if d.attack_chance() > 2:
+            if d.attack_chance() >= 2:
                 # scav attack misses
                 text = ("...")
                 d.print_string(text)
