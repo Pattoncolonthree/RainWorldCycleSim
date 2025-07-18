@@ -1,3 +1,6 @@
+"""
+THIS IS A MAJOR WIP !!!! THIS IS NOT A PART OF MY END CODE FOR 2025 CSC2!!!!
+"""
 import time
 import random
 import sys

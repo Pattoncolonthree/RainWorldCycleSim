@@ -154,7 +154,7 @@ def scav_gui():
                         # scav misses
                         text = ("...")
                         d.print_string(text)
-                        scav_miss.load('scav_miss.gif')
+                        scav_miss.load('scavmiss.gif')
                         text = ("The spear clanks to the ground next to you")
                         d.print_string(text)
                         text = ("O_O'")
@@ -179,7 +179,7 @@ def scav_gui():
                         d.app.destroy()
                         exit()
                 else:
-                    # just in case someone breaks program, somehow??
+                    # just in case someone breaks this part of program, somehow
                     text = ("what,,,,,")
                     d.print_string(text)
                     d.app.destroy()
@@ -214,7 +214,7 @@ def scav_gui():
                 # scav attack misses
                 text = ("...")
                 d.print_string(text)
-                scav_miss.load('scav_miss.gif')
+                scav_miss.load('scavmiss.gif')
                 text = ("The spear clanks to the ground next to you")
                 d.print_string(text)
                 text = ("O_O'")
@@ -308,7 +308,7 @@ def scav_gui():
                 # scav attack misses
                 text = ("...")
                 d.print_string(text)
-                scav_miss.load('scav_miss.gif')
+                scav_miss.load('scavmiss.gif')
                 text = ("The spear clanks to the ground next to you")
                 d.print_string(text)
                 text = ("O_O'")
