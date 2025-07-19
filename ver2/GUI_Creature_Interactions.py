@@ -122,7 +122,7 @@ def scav_gui():
     if d.has_spear is True:
         # if scug does have spear
         # has_spear = True
-        text = ("You look warily at the Scavenger, raising your own Spear defensively")
+        text = ("You look warily at the Scavenger,\nraising your own Spear defensively")
         d.print_string(text)
         text = ("You think of your options. Throw the Spear at it?\nDrop the weapon for peace??")
         d.print_string(text)
@@ -135,9 +135,9 @@ def scav_gui():
                 if d.reputation_rng() < 0:
                     # scav run
                     scav_dodge_run.load('scav_dodge_run.gif')
-                    text = ("The scavenger jumps out of the way, scrambling to it's feet and staring at you")
+                    text = ("The scavenger jumps out of the way, scrambling to\nit's feet and staring at you")
                     d.print_string(text)
-                    text = ("Without another thought the scavenger dives towards a tunnel, squeezing through and running away")
+                    text = ("Without another thought the scavenger dives towards a\ntunnel, squeezing through and running away")
                     d.print_string(text)
                     scav_scugsp.load('scug.gif')
                     runaway = True
@@ -245,7 +245,7 @@ def scav_gui():
         # has_spear = False
         text = ("You look warily at the Scavenger, seeing it's armed with a spear")
         d.print_string(text)
-        text = ("you think of your options. Try to run past? maybe crouch to show you aren't a threat")
+        text = ("you think of your options.\nTry to run past? maybe crouch to show you aren't a threat")
         d.print_string(text)
         action = input("What do you do? (crouch or run)").lower()
         if action == "run" or action == "run past":
